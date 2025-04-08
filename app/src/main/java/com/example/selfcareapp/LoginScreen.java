@@ -72,7 +72,7 @@ public class LoginScreen extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        startActivity(new Intent(LoginScreen.this,MainActivity.class));
+                        startActivity(new Intent(LoginScreen.this,HomeScreen.class));
                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                         finish();
                     }
@@ -95,7 +95,7 @@ public class LoginScreen extends AppCompatActivity {
                         UserModel userModel = new UserModel(FirebaseAuth.getInstance().getUid(),name,email,password);
                         databaseReference.child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid())).setValue(userModel);
 
-                        startActivity(new Intent(LoginScreen.this,MainActivity.class));
+                        startActivity(new Intent(LoginScreen.this,HomeScreen.class));
                         finish();
                     }
                 });
