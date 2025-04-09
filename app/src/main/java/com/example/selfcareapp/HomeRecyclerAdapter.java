@@ -19,8 +19,12 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
         details = new ArrayList<>();
         images = new ArrayList<>();
 
-        details.add("Card 1");
+        details.add("Breathe");
         images.add(R.drawable.lotus_simple);
+
+        details.add("Journal");
+        images.add(R.drawable.notebook);
+
 
 
 
