@@ -25,6 +25,9 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
         details.add("Journal");
         images.add(R.drawable.notebook);
 
+        details.add("Goals");
+        images.add(R.drawable.goals);
+
 
 
 

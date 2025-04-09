@@ -5,6 +5,56 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/LightBlue"
     tools:context=".Journal">
+
+    <TextView
+        android:id="@+id/tv_journal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/beth_ellen"
+        android:paddingTop="20dp"
+        android:text="Journal"
+        android:textColor="@color/DarkestBlue"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <LinearLayout
+        android:id="@+id/ll_journal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline">
+
+        <EditText
+            android:id="@+id/et_title_journal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:hint="Title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/DarkestBlue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline" />
+
+    </LinearLayout>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
