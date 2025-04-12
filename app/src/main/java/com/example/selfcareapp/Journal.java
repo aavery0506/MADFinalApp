@@ -11,11 +11,15 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.selfcareapp.databinding.ActivityJournalBinding;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class Journal extends AppCompatActivity {
     ActivityJournalBinding binding;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
     private ArrayList<JournalModel> journalList;
 
     @Override
@@ -27,17 +31,26 @@ public class Journal extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference();
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        binding.btnSaveJournal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JournalModel journal = new JournalModel(binding.etTitleJournal.getText().toString(),
+                        binding.etDateJournal.getText().toString(),
+                        binding.etEntryJournal.getText().toString());
+
+                myRef.child("Journal Entries").push().setValue(journal);
+            }
+        });
     }
 
-    private void setAdapter(){
-        layoutManager= new LinearLayoutManager(this);
-        binding.HomeRView.setLayoutManager(layoutManager);
-        adapter = new HomeRecyclerAdapter();
-        binding.HomeRView.setAdapter(adapter);
-    }
 }

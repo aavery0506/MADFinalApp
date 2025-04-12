@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapter.ViewHolder>{
     final private ArrayList<String> details;
@@ -32,20 +33,12 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
 
     }
 
-    public HomeRecyclerAdapter(HomeRecyclerViewClickListener listener){
+    public HomeRecyclerAdapter(ArrayList<String> details,ArrayList<Integer> images, HomeRecyclerViewClickListener listener){
         super();
         this.listener = listener;
-        details = new ArrayList<>();
-        images = new ArrayList<>();
+        this.details = details;
+        this.images = images;
 
-        details.add("Breathe");
-        images.add(R.drawable.lotus_simple);
-
-        details.add("Journal");
-        images.add(R.drawable.notebook);
-
-        details.add("Goals");
-        images.add(R.drawable.goals);
     }
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView cardImage;

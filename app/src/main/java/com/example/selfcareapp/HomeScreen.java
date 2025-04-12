@@ -1,5 +1,6 @@
 package com.example.selfcareapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.selfcareapp.databinding.ActivityHomeScreenBinding;
 
+import java.util.ArrayList;
+
 public class HomeScreen extends AppCompatActivity {
     ActivityHomeScreenBinding binding;
 
@@ -21,6 +24,8 @@ public class HomeScreen extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private HomeRecyclerAdapter.HomeRecyclerViewClickListener listener;
+    private ArrayList<String> details;
+    private ArrayList<Integer> images;
 
 
 
@@ -32,6 +37,14 @@ public class HomeScreen extends AppCompatActivity {
         binding = ActivityHomeScreenBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        details.add("Breathe");
+        images.add(R.drawable.lotus_simple);
+
+        details.add("Journal");
+        images.add(R.drawable.notebook);
+
+        details.add("Goals");
+        images.add(R.drawable.goals);
 
         setAdapter();
 
@@ -44,10 +57,20 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     private void setAdapter(){
+        setOnClickListener();
         layoutManager= new LinearLayoutManager(this);
         binding.HomeRView.setLayoutManager(layoutManager);
-        adapter = new HomeRecyclerAdapter();
+        adapter = new HomeRecyclerAdapter(details, images,listener);
         binding.HomeRView.setAdapter(adapter);
+    }
+
+    private void setOnClickListener() {
+        listener = new HomeRecyclerAdapter.HomeRecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                //Intent intent = new Intent(getApplicationContext())
+            }
+        };
     }
 
 }
