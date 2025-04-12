@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/beth_ellen"
+        android:gravity="center"
         android:paddingTop="20dp"
         android:text="Journal"
         android:textColor="@color/DarkestBlue"
@@ -46,6 +47,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
             android:hint="Title"
+            android:inputType="text"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/DarkestBlue"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,16 +59,57 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="15dp"
-            android:hint="Date"
+            android:hint="mm/dd/year"
+            android:inputType="date"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/DarkestBlue"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guideline"/>
+            app:layout_constraintTop_toTopOf="@id/guideline" />
+
+        <EditText
+            android:id="@+id/et_entry_journal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
+            android:hint="Journal Entry"
+            android:inputType="textMultiLine"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/DarkestBlue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline" />
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="138dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/DarkBlue"
+        android:gravity="center"
+        android:text="Save Entry"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_journal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="15dp"/>
 
-
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="36dp"
+        android:baselineAlignBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_journal"
+        app:layout_constraintVertical_bias="0.882"
+        app:srcCompat="@drawable/baseline_search_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

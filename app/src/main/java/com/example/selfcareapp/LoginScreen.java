@@ -27,6 +27,8 @@ public class LoginScreen extends AppCompatActivity {
 
     String name, email, password;
 
+
+
     DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

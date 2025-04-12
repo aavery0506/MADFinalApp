@@ -18,7 +18,8 @@
         android:text="App Name TBD"
         android:textColor="@color/DarkBlue"
         android:textStyle="bold"
-        android:textSize="30sp"/>
+        android:fontFamily="@font/beth_ellen"
+        android:textSize="35sp"/>
 
     <ImageView
         android:layout_width="250dp"
@@ -36,7 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        app:contentPadding="10dp">
+        app:contentPadding="10dp"
+        app:cardCornerRadius="30dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -89,30 +91,31 @@
         android:orientation="horizontal"
         android:weightSum="2">
 
-        <TextView
+        <Button
             android:id="@+id/signUp"
             android:text="Sign Up"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_weight="1"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:background="@color/DarkBlue"
-            android:layout_marginRight="10dp"/>
+            android:backgroundTint="@color/DarkBlue"
+            android:layout_marginRight="10dp"
+            />
 
-        <TextView
+        <Button
             android:id="@+id/login"
             android:text="Login"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_weight="1"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:background="@color/DarkBlue"
+            android:backgroundTint="@color/DarkBlue"
             android:layout_marginLeft="10dp"/>
 
     </LinearLayout>

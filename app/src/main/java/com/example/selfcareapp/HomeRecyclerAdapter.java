@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapter.ViewHolder>{
     final private ArrayList<String> details;
     final private ArrayList<Integer> images;
+    private HomeRecyclerViewClickListener listener;
+
     public HomeRecyclerAdapter(){
         super();
         details = new ArrayList<>();
@@ -28,11 +30,24 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
         details.add("Goals");
         images.add(R.drawable.goals);
 
-
-
-
     }
-    static class ViewHolder extends RecyclerView.ViewHolder{
+
+    public HomeRecyclerAdapter(HomeRecyclerViewClickListener listener){
+        super();
+        this.listener = listener;
+        details = new ArrayList<>();
+        images = new ArrayList<>();
+
+        details.add("Breathe");
+        images.add(R.drawable.lotus_simple);
+
+        details.add("Journal");
+        images.add(R.drawable.notebook);
+
+        details.add("Goals");
+        images.add(R.drawable.goals);
+    }
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView cardImage;
         TextView description;
 
@@ -40,6 +55,13 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
             super(itemView);
             cardImage = itemView.findViewById(R.id.IV_card);
             description = itemView.findViewById(R.id.TV_card);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            listener.onClick(view,getAdapterPosition());
+
         }
     }
 
@@ -60,5 +82,9 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
     @Override
     public int getItemCount() {
         return details.size();
+    }
+
+    public interface HomeRecyclerViewClickListener{
+        void onClick(View view, int position);
     }
 }

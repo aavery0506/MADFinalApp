@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +20,7 @@ public class HomeScreen extends AppCompatActivity {
     private HomeRecyclerAdapter adapter;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
+    private HomeRecyclerAdapter.HomeRecyclerViewClickListener listener;
 
 
 
@@ -31,11 +33,7 @@ public class HomeScreen extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        layoutManager= new LinearLayoutManager(this);
-        binding.HomeRView.setLayoutManager(layoutManager);
-        adapter = new HomeRecyclerAdapter();
-        binding.HomeRView.setAdapter(adapter);
-
+        setAdapter();
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -44,4 +42,12 @@ public class HomeScreen extends AppCompatActivity {
             return insets;
         });
     }
+
+    private void setAdapter(){
+        layoutManager= new LinearLayoutManager(this);
+        binding.HomeRView.setLayoutManager(layoutManager);
+        adapter = new HomeRecyclerAdapter();
+        binding.HomeRView.setAdapter(adapter);
+    }
+
 }
