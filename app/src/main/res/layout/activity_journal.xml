@@ -10,11 +10,11 @@
 
     <TextView
         android:id="@+id/tv_journal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/beth_ellen"
         android:gravity="center"
-        android:paddingTop="20dp"
+        android:padding="20dp"
         android:text="Journal"
         android:textColor="@color/DarkestBlue"
         android:textSize="50sp"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="15dp"
-            android:hint="mm/dd/year"
+            android:hint="mm/dd/yyyy"
             android:inputType="date"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/DarkestBlue"

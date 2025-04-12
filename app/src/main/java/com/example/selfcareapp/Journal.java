@@ -1,7 +1,9 @@
 package com.example.selfcareapp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,13 +46,27 @@ public class Journal extends AppCompatActivity {
         binding.btnSaveJournal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Context context = getApplicationContext();
+                CharSequence text = "Entry Saved!";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(context,text,duration);
+                toast.show();
                 JournalModel journal = new JournalModel(binding.etTitleJournal.getText().toString(),
                         binding.etDateJournal.getText().toString(),
                         binding.etEntryJournal.getText().toString());
 
                 myRef.child("Journal Entries").push().setValue(journal);
+
+                resetEntry();
+
             }
         });
+    }
+
+    private void resetEntry() {
+        binding.etEntryJournal.setText("");
+        binding.etDateJournal.setText("");
+        binding.etTitleJournal.setText("");
     }
 
 }

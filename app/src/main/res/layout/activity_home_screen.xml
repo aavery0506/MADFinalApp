@@ -40,17 +40,46 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent=".25"/>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/topguideline"
+    app:layout_constraintBottom_toTopOf="@id/bottomguideline"
+    android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/HomeRView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/topguideline"
-        app:layout_constraintBottom_toBottomOf="@id/bottomguideline"
+    <Button
+        android:id="@+id/HomeBreathe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/DarkBlue"
+        android:fontFamily="@font/gaegu"
+        android:text="Breathe"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/HomeJournal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/DarkBlue"
+        android:fontFamily="@font/gaegu"
+        android:text="Journal"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/HomeGoals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/DarkBlue"
+        android:fontFamily="@font/gaegu"
+        android:text="Goals"
+        android:textColor="@color/white"
+        android:textSize="30sp"
          />
 
+
+</LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottomguideline"
