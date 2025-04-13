@@ -3,6 +3,7 @@ package com.example.selfcareapp;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,9 +19,11 @@ import com.example.selfcareapp.databinding.FragmentBreatheSelectBinding;
  */
 public class BreatheSelect extends Fragment {
     private FragmentBreatheSelectBinding binding;
-    private BreatheSelectListener activityCallback;
+    private SelectListener activityCallback;
 
-    public interface BreatheSelectListener{void onButtonClick(int time);}
+
+    public interface SelectListener{void onButtonClick(String text);}
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -55,12 +58,15 @@ public class BreatheSelect extends Fragment {
     @Override
     public void onAttach(Context context){
         super.onAttach(context);
+
         try{
-            activityCallback = (BreatheSelectListener) context;
-        }catch(ClassCastException e){
-            throw new ClassCastException(context.toString()+"Must implement BreatheSelectListener");
+            activityCallback = (SelectListener) context;
+        }
+        catch(ClassCastException e){
+            throw new ClassCastException(context.toString() + "Must implement SelectListener");
         }
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,5 +83,37 @@ public class BreatheSelect extends Fragment {
         // Inflate the layout for this fragment
         binding= FragmentBreatheSelectBinding.inflate(inflater,container,false);
         return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
+        super.onViewCreated(view,savedInstanceState);
+        binding.btnSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buttonClicked(view);
+            }
+        });
+    }
+
+    public void buttonClicked(View view){
+        String time = "Please select a time";
+        if (binding.oneMin.isChecked()){
+            time = "1 Minute";
+        } else if (binding.twoMin.isSelected()) {
+            time = "2 Minutes";
+        } else if (binding.fiveMin.isSelected()) {
+            time = "5 Minutes";
+        } else if (binding.tenMin.isSelected()) {
+            time = "10 Minutes";
+        }
+
+        activityCallback.onButtonClick(time);
+    }
+
+    @Override
+    public void onDestroyView(){
+        super.onDestroyView();
+        binding = null;
     }
 }

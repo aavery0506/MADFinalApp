@@ -58,13 +58,7 @@ FragmentBreatheAnimationBinding binding;
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        binding.animationLotus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),HomeScreen.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     @Override
@@ -73,5 +67,15 @@ FragmentBreatheAnimationBinding binding;
         // Inflate the layout for this fragment
         binding = FragmentBreatheAnimationBinding.inflate(inflater,container,false);
         return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroyView(){
+        super.onDestroyView();
+        binding = null;
+    }
+
+    public void updateText(String text){
+        binding.tvAnnTime.setText(text);
     }
 }

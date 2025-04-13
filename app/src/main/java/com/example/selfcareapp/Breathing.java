@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.selfcareapp.databinding.ActivityBreathingBinding;
 
-public class Breathing extends AppCompatActivity {
+public class Breathing extends AppCompatActivity implements BreatheSelect.SelectListener{
 
     ActivityBreathingBinding binding;
 
@@ -32,5 +32,13 @@ public class Breathing extends AppCompatActivity {
             return insets;
         });
 
+    }
+
+    @Override
+    public void onButtonClick(String text) {
+        BreatheAnimation breatheAnimation = (BreatheAnimation) getSupportFragmentManager().findFragmentById(R.id.fcv_animation);
+        if (breatheAnimation != null) {
+            breatheAnimation.updateText(text);
+        }
     }
 }
