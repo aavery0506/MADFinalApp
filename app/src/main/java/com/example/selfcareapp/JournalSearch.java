@@ -33,7 +33,7 @@ public class JournalSearch extends AppCompatActivity {
             return insets;
         });
 
-        binding.ivLotusSeach.setOnClickListener(new View.OnClickListener() {
+        binding.ivLotusSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(JournalSearch.this, HomeScreen.class);

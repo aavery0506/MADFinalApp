@@ -1,5 +1,6 @@
 package com.example.selfcareapp;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,13 +9,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.selfcareapp.databinding.FragmentBreatheSelectBinding;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link BreatheSelect#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class BreatheSelect extends Fragment {
+    private FragmentBreatheSelectBinding binding;
+    private BreatheSelectListener activityCallback;
 
+    public interface BreatheSelectListener{void onButtonClick(int time);}
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -47,6 +53,16 @@ public class BreatheSelect extends Fragment {
     }
 
     @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+        try{
+            activityCallback = (BreatheSelectListener) context;
+        }catch(ClassCastException e){
+            throw new ClassCastException(context.toString()+"Must implement BreatheSelectListener");
+        }
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
@@ -59,6 +75,7 @@ public class BreatheSelect extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_breathe_select, container, false);
+        binding= FragmentBreatheSelectBinding.inflate(inflater,container,false);
+        return binding.getRoot();
     }
 }

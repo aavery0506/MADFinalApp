@@ -1,5 +1,6 @@
 package com.example.selfcareapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,12 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.selfcareapp.databinding.FragmentBreatheAnimationBinding;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link BreatheAnimation#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class BreatheAnimation extends Fragment {
+FragmentBreatheAnimationBinding binding;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -53,12 +57,21 @@ public class BreatheAnimation extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        binding.animationLotus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),HomeScreen.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_breathe_animation, container, false);
+        binding = FragmentBreatheAnimationBinding.inflate(inflater,container,false);
+        return binding.getRoot();
     }
 }

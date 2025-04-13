@@ -19,7 +19,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Breathing"
+            android:name=".Journal"
             android:exported="false" />
         <activity
             android:name=".Goals"
@@ -31,7 +31,7 @@
             android:name=".LoginScreen"
             android:exported="false" />
         <activity
-            android:name=".Journal"
+            android:name=".Breathing"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
