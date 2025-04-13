@@ -54,10 +54,10 @@
         android:id="@+id/et_searchDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:hint="dd/mm/yyyy"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.947" />
@@ -66,15 +66,15 @@
         android:id="@+id/tv_searchDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:fontFamily="@font/gaegu"
         android:text="Enter Date:"
         android:textColor="@color/DarkestBlue"
-        android:textSize="20sp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.619" />
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        app:layout_goneMarginStart="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/et_searchDate"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -85,5 +85,15 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/baseline_search_24" />
+
+    <ImageView
+        android:id="@+id/iv_lotus_seach"
+        android:layout_width="100dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lotus_simple" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

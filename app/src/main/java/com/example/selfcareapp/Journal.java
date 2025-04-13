@@ -72,6 +72,14 @@ public class Journal extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        binding.ivLotusJournal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Journal.this, HomeScreen.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void resetEntry() {
@@ -80,6 +88,4 @@ public class Journal extends AppCompatActivity {
         binding.etTitleJournal.setText("");
     }
 
-    public String getEntry() {
-    }
 }
