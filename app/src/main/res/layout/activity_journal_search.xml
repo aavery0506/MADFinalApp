@@ -87,13 +87,14 @@
         app:srcCompat="@drawable/baseline_search_24" />
 
     <ImageView
-        android:id="@+id/iv_lotus_seach"
+        android:id="@+id/iv_lotus_search"
         android:layout_width="100dp"
         android:layout_height="65dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/lotus_simple" />
+        app:srcCompat="@drawable/lotus_simple"
+        app:tint="@color/DarkestBlue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
