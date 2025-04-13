@@ -33,7 +33,7 @@ public class HomeScreen extends AppCompatActivity {
         binding.HomeJournal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeScreen.this, HomeScreen.class);
+                Intent intent = new Intent(HomeScreen.this, Journal.class);
                 startActivity(intent);
             }
         });

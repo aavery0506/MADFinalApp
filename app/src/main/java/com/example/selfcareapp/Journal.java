@@ -1,6 +1,7 @@
 package com.example.selfcareapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -46,11 +47,13 @@ public class Journal extends AppCompatActivity {
         binding.btnSaveJournal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //set up for Toast
                 Context context = getApplicationContext();
                 CharSequence text = "Entry Saved!";
                 int duration = Toast.LENGTH_LONG;
                 Toast toast = Toast.makeText(context,text,duration);
                 toast.show();
+                //add entry to the database
                 JournalModel journal = new JournalModel(binding.etTitleJournal.getText().toString(),
                         binding.etDateJournal.getText().toString(),
                         binding.etEntryJournal.getText().toString());
@@ -59,6 +62,14 @@ public class Journal extends AppCompatActivity {
 
                 resetEntry();
 
+            }
+        });
+
+        binding.ivSearchJournalpg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Journal.this, JournalSearch.class);
+                startActivity(intent);
             }
         });
     }
