@@ -80,4 +80,6 @@ public class Journal extends AppCompatActivity {
         binding.etTitleJournal.setText("");
     }
 
+    public String getEntry() {
+    }
 }
