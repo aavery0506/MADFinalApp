@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/LightPurple"
+    android:background="@color/MedBlue"
     android:padding="10dp"
     tools:context=".LoginScreen">
 

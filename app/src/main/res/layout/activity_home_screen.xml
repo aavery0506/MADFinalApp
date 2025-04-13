@@ -48,6 +48,16 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/HomeJournal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/DarkBlue"
+        android:fontFamily="@font/gaegu"
+        android:text="Journal"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+    <Button
         android:id="@+id/HomeBreathe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,15 +67,7 @@
         android:textColor="@color/white"
         android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/HomeJournal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/DarkBlue"
-        android:fontFamily="@font/gaegu"
-        android:text="Journal"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
+
 
     <Button
         android:id="@+id/HomeGoals"
