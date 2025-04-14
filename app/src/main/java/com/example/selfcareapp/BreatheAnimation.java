@@ -11,10 +11,12 @@ import android.view.ViewGroup;
 
 import com.example.selfcareapp.databinding.FragmentBreatheAnimationBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link BreatheAnimation#newInstance} factory method to
- * create an instance of this fragment.
+/*TODO:
+   figure out animation:
+    -set up timer
+    -change image based on time
+   set up lotus to go to home screen:
+    -start new activity from fragment?
  */
 public class BreatheAnimation extends Fragment {
 FragmentBreatheAnimationBinding binding;
