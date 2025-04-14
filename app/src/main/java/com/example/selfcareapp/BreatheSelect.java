@@ -22,7 +22,7 @@ public class BreatheSelect extends Fragment {
     private SelectListener activityCallback;
 
 
-    public interface SelectListener{void onButtonClick(String text);}
+    public interface SelectListener{void onButtonClick(String text, int mins);}
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -97,18 +97,23 @@ public class BreatheSelect extends Fragment {
     }
 
     public void buttonClicked(View view){
-        String time = "Please select a time";
+        String time = "Please select a time"; //default display text
+        int mins = 0; //default time for timer
         if (binding.oneMin.isChecked()){
             time = "1 Minute";
-        } else if (binding.twoMin.isSelected()) {
+            mins = 1;
+        } else if (binding.twoMin.isChecked()) {
             time = "2 Minutes";
-        } else if (binding.fiveMin.isSelected()) {
+            mins = 2;
+        } else if (binding.fiveMin.isChecked()) {
             time = "5 Minutes";
-        } else if (binding.tenMin.isSelected()) {
+            mins = 5;
+        } else if (binding.tenMin.isChecked()) {
             time = "10 Minutes";
+            mins = 10;
         }
 
-        activityCallback.onButtonClick(time);
+        activityCallback.onButtonClick(time,mins);
     }
 
     @Override

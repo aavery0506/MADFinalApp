@@ -35,7 +35,7 @@ public class Breathing extends AppCompatActivity implements BreatheSelect.Select
     }
 
     @Override
-    public void onButtonClick(String text) {
+    public void onButtonClick(String text, int mins) {
         BreatheAnimation breatheAnimation = (BreatheAnimation) getSupportFragmentManager().findFragmentById(R.id.fcv_animation);
         if (breatheAnimation != null) {
             breatheAnimation.updateText(text);
