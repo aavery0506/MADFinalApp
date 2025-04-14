@@ -47,7 +47,8 @@
             android:text="1 Min"
             android:textColor="@color/DarkestBlue"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:buttonTint = "@color/DarkBlue"/>
 
         <RadioButton
             android:id="@+id/twoMin"
@@ -58,7 +59,8 @@
             android:text="2 Mins"
             android:textColor="@color/DarkestBlue"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:buttonTint = "@color/DarkBlue"/>
 
         <RadioButton
             android:id="@+id/fiveMin"
@@ -69,7 +71,8 @@
             android:text="5 Mins"
             android:textColor="@color/DarkestBlue"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:buttonTint = "@color/DarkBlue"/>
 
         <RadioButton
             android:id="@+id/tenMin"
@@ -80,7 +83,8 @@
             android:text="10 Mins"
             android:textColor="@color/DarkestBlue"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:buttonTint = "@color/DarkBlue"/>
     </RadioGroup>
 
     <Button

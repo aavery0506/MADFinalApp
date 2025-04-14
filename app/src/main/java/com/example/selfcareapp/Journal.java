@@ -12,6 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.selfcareapp.databinding.ActivityJournalBinding;
 import com.google.firebase.database.DatabaseReference;
@@ -25,17 +26,22 @@ public class Journal extends AppCompatActivity {
     DatabaseReference myRef;
     private ArrayList<JournalModel> journalList;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        //setContentView(R.layout.activity_journal);
+
         binding = ActivityJournalBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
 
+        //connect to Firebase
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference();
+
+
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -44,10 +50,11 @@ public class Journal extends AppCompatActivity {
             return insets;
         });
 
+        //save entry to data base when save button clicked
         binding.btnSaveJournal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //set up for Toast
+                //set up for Toast when entry is saved
                 Context context = getApplicationContext();
                 CharSequence text = "Entry Saved!";
                 int duration = Toast.LENGTH_LONG;
@@ -60,11 +67,11 @@ public class Journal extends AppCompatActivity {
 
                 myRef.child("Journal Entries").push().setValue(journal);
 
-                resetEntry();
+                resetEntry(); //clear input text
 
             }
         });
-
+        //click on search image to go to search activity
         binding.ivSearchJournalpg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,7 +79,7 @@ public class Journal extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        //click on Lotus to go Home
         binding.ivLotusJournal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,6 +89,7 @@ public class Journal extends AppCompatActivity {
         });
     }
 
+    //reset text input fields
     private void resetEntry() {
         binding.etEntryJournal.setText("");
         binding.etDateJournal.setText("");

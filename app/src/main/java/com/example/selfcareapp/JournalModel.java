@@ -4,11 +4,12 @@ public class JournalModel {
     private String title;
     private String date;
     private String entry;
+
+    public JournalModel(){} //empty constructor for Firebase
     public JournalModel(String title, String date, String entry){
         this.title=title;
         this.date=date;
         this.entry=entry;
-
     }
     //getters and setters
     public String getTitle() {

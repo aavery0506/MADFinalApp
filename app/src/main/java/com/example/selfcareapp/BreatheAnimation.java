@@ -1,8 +1,10 @@
 package com.example.selfcareapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -20,6 +22,10 @@ import com.example.selfcareapp.databinding.FragmentBreatheAnimationBinding;
  */
 public class BreatheAnimation extends Fragment {
 FragmentBreatheAnimationBinding binding;
+    private BreatheAnimation.AnimateListener activityCallback;
+
+
+    public interface AnimateListener{void goHome();}
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -53,14 +59,17 @@ FragmentBreatheAnimationBinding binding;
     }
 
     @Override
+    public void onAttach(@NonNull Context context){
+        super.onAttach(context);
+        activityCallback = (BreatheAnimation.AnimateListener) context;
+    }
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
@@ -79,5 +88,14 @@ FragmentBreatheAnimationBinding binding;
 
     public void updateText(String text){
         binding.tvAnnTime.setText(text);
+    }
+
+    public void goHome(){
+        binding.animationLotus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Intent intent = new Intent(BreatheAnimation.this, HomeScreen.class);
+            }
+        });
     }
 }
