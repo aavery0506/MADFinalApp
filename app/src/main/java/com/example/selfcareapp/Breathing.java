@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.selfcareapp.databinding.ActivityBreathingBinding;
 
-public class Breathing extends AppCompatActivity implements BreatheSelect.SelectListener{
+public class Breathing extends AppCompatActivity implements BreatheSelect.SelectListener,BreatheAnimation.AnimateListener{
 
     ActivityBreathingBinding binding;
 
@@ -39,6 +39,14 @@ public class Breathing extends AppCompatActivity implements BreatheSelect.Select
         BreatheAnimation breatheAnimation = (BreatheAnimation) getSupportFragmentManager().findFragmentById(R.id.fcv_animation);
         if (breatheAnimation != null) {
             breatheAnimation.updateText(text);
+        }
+    }
+
+    @Override
+    public void goHome(){
+        BreatheAnimation breatheAnimation = (BreatheAnimation) getSupportFragmentManager().findFragmentById(R.id.fcv_animation);
+        if (breatheAnimation != null) {
+            breatheAnimation.goHome();
         }
     }
 }

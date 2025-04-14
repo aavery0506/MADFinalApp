@@ -21,7 +21,7 @@ import com.example.selfcareapp.databinding.FragmentBreatheAnimationBinding;
     -start new activity from fragment?
  */
 public class BreatheAnimation extends Fragment {
-FragmentBreatheAnimationBinding binding;
+    FragmentBreatheAnimationBinding binding;
     private BreatheAnimation.AnimateListener activityCallback;
 
 
@@ -59,17 +59,13 @@ FragmentBreatheAnimationBinding binding;
     }
 
     @Override
-    public void onAttach(@NonNull Context context){
-        super.onAttach(context);
-        activityCallback = (BreatheAnimation.AnimateListener) context;
-    }
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -94,8 +90,10 @@ FragmentBreatheAnimationBinding binding;
         binding.animationLotus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(BreatheAnimation.this, HomeScreen.class);
+                Intent intent = new Intent(getActivity(), HomeScreen.class);
+                startActivity(intent);
             }
         });
     }
+
 }
