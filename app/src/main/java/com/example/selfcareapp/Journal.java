@@ -27,7 +27,6 @@ public class Journal extends AppCompatActivity {
     private ArrayList<JournalModel> journalList;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +39,6 @@ public class Journal extends AppCompatActivity {
         //connect to Firebase
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference();
-
-
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
