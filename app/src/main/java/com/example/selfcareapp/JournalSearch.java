@@ -30,6 +30,8 @@ public class JournalSearch extends AppCompatActivity {
     RecyclerView recyclerView;
     JournalRecyclerAdapter adapter;
 /*TODO:
+    add retrieve all button
+        show all entries in the journal
     get journal entry based on date entered
         -link database
         -get date from input

@@ -62,4 +62,9 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
             date = view.findViewById(R.id.jcard_show_date);
         }
     }
+
+    public void updateAdapter(ArrayList<JournalModel> journalList){
+        journals.addAll(journalList);
+        notifyDataSetChanged();
+    }
 }
