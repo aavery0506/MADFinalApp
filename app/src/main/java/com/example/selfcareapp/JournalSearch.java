@@ -29,9 +29,11 @@ public class JournalSearch extends AppCompatActivity {
     private ArrayList<JournalModel> journalList;
     RecyclerView recyclerView;
     JournalRecyclerAdapter adapter;
+    String date, entry, title;
 /*TODO:
     add retrieve all button
-        show all entries in the journal
+        show all entries in the journal in date order
+        https://firebase.google.com/docs/database/admin/retrieve-data#section-queries
     get journal entry based on date entered
         -link database
         -get date from input
@@ -49,7 +51,7 @@ public class JournalSearch extends AppCompatActivity {
 
         //connect to Firebase
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference();
+        myRef = database.getReference("Journal Entries");
 
         //recycler View set up
         recyclerView =findViewById(R.id.rv_search);
@@ -80,8 +82,13 @@ public class JournalSearch extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 eventChangeListener();
-                
+            }
+        });
 
+        binding.btnShowAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                date = binding.etSearchDate.getText().toString();
             }
         });
 

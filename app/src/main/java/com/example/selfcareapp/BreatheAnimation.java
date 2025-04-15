@@ -86,6 +86,7 @@ public class BreatheAnimation extends Fragment {
         binding.tvAnnTime.setText(text);
     }
 
+    //This is not working and I'm not sure how to get it to work.
     public void goHome(){
         binding.animationLotus.setOnClickListener(new View.OnClickListener() {
             @Override

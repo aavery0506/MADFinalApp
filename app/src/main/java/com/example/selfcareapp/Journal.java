@@ -65,6 +65,7 @@ public class Journal extends AppCompatActivity {
                         binding.etDateJournal.getText().toString(),
                         binding.etEntryJournal.getText().toString());
 
+                //TODO: save journals based on user, currently all pushing to one place
                 myRef.child("Journal Entries").push().setValue(journal);
 
                 resetEntry(); //clear input text

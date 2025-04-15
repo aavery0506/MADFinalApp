@@ -24,12 +24,10 @@ import java.util.Objects;
 public class LoginScreen extends AppCompatActivity {
 
     ActivityLoginScreenBinding binding;
-
     String name, email, password;
 
-
-
     DatabaseReference databaseReference;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
