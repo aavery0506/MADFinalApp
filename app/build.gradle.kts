@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.gms.google.services)
+
 }
 
 android {
@@ -48,4 +49,16 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
+
+    // Retrofit
+    implementation(libs.retrofit)
+
+    // Gson converter for JSON parsing
+    implementation(libs.converter.gson)
+
+    // OkHttp for network operations
+    implementation(libs.okhttp)
+
+    // Optional: Logging interceptor for debugging
+    implementation(libs.logging.interceptor)
 }

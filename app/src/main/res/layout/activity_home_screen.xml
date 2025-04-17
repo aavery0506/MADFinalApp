@@ -67,8 +67,6 @@
         android:textColor="@color/white"
         android:textSize="30sp" />
 
-
-
     <Button
         android:id="@+id/HomeGoals"
         android:layout_width="match_parent"
@@ -79,6 +77,16 @@
         android:textColor="@color/white"
         android:textSize="30sp"
          />
+    <Button
+        android:id="@+id/HomeAffirmations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/DarkBlue"
+        android:fontFamily="@font/gaegu"
+        android:text="Affirmations"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        />
 
 
 </LinearLayout>
