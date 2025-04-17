@@ -73,6 +73,13 @@ public class BreatheAnimation extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentBreatheAnimationBinding.inflate(inflater,container,false);
+        binding.animationLotus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), HomeScreen.class);
+                startActivity(intent);
+            }
+        });
         return binding.getRoot();
     }
 
