@@ -8,7 +8,7 @@ public class Date {
     private int month;
     private String strMonth;
     private int year;
-    public Date(int day, int month, int year) {
+    public Date(int month, int day, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
