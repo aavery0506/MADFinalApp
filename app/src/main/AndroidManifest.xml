@@ -14,7 +14,7 @@
         android:theme="@style/Theme.SelfCareApp"
         tools:targetApi="31">
         <activity
-            android:name=".Affirmations"
+            android:name=".Goals"
             android:exported="false" />
         <activity
             android:name=".JournalSearch"
@@ -35,7 +35,7 @@
             android:name=".LoginScreen"
             android:exported="false" />
         <activity
-            android:name=".Goals"
+            android:name=".Affirmations"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -8,10 +8,7 @@ import retrofit2.http.GET;
 
 public interface AffirmationApiService {
     //Get a random affirmation
-    @GET("affirmation")
+    @GET("/")
     Call<AffirmationModel> getRandomAffirmation();
 
-    //get all affirmations
-    @GET("affirmations")
-    Call<List<AffirmationModel>> getAllAffirmations();
 }
