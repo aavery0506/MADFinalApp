@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.gms.google.services)
 
+
 }
 
 android {
@@ -61,4 +62,8 @@ dependencies {
 
     // Optional: Logging interceptor for debugging
     implementation(libs.logging.interceptor)
+
+    //Navigation Component
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
 }

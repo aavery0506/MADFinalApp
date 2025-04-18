@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.selfcareapp.databinding.FragmentBreatheSelectBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link BreatheSelect#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class BreatheSelect extends Fragment {
     private FragmentBreatheSelectBinding binding;
     private SelectListener activityCallback;
@@ -24,35 +22,8 @@ public class BreatheSelect extends Fragment {
 
     public interface SelectListener{void onButtonClick(String text, int mins);}
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public BreatheSelect() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BreatheSelect.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BreatheSelect newInstance(String param1, String param2) {
-        BreatheSelect fragment = new BreatheSelect();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
@@ -71,10 +42,6 @@ public class BreatheSelect extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -98,22 +65,37 @@ public class BreatheSelect extends Fragment {
 
     public void buttonClicked(View view){
         String time = "Please select a time"; //default display text
-        int mins = 0; //default time for timer
+        long timeInMS;
+        int mins;
+
         if (binding.oneMin.isChecked()){
             time = "1 Minute";
             mins = 1;
+            timeInMS = 60000;
         } else if (binding.twoMin.isChecked()) {
             time = "2 Minutes";
             mins = 2;
+            timeInMS = 120000;
         } else if (binding.fiveMin.isChecked()) {
             time = "5 Minutes";
             mins = 5;
+            timeInMS = 300000;
         } else if (binding.tenMin.isChecked()) {
             time = "10 Minutes";
             mins = 10;
+            timeInMS = 600000;
+        }else{
+            mins = 1;
+            timeInMS = 60000;
         }
-
+        //save selected time to singleton
+        TimerSettings.getInstance().setSelectedTimeInMS(timeInMS);
         activityCallback.onButtonClick(time,mins);
+    }
+
+    private void navigateToAnnimationFragment(){
+        //using Navigation component
+        NavController navController = NavHostFragment.findNavController(this);
     }
 
     @Override
