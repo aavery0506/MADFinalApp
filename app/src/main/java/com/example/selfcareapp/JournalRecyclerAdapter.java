@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecyclerAdapter.ViewHolder> {
     private ArrayList<JournalModel> journals;
@@ -45,9 +46,15 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
         return journals.size();
     }
 
-    public JournalRecyclerAdapter(ArrayList<JournalModel> journals) {
-        super();
-        this.journals = journals;
+    //replace journals with a new list
+    public void updateJournalList(ArrayList<JournalModel> newJournalList){
+        this.journals = newJournalList;
+        notifyDataSetChanged();
+    }
+    //add to journals
+    public void updateAdapter(ArrayList<JournalModel> journalList){
+        journals.addAll(journalList);
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -63,8 +70,5 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
         }
     }
 
-    public void updateAdapter(ArrayList<JournalModel> journalList){
-        journals.addAll(journalList);
-        notifyDataSetChanged();
-    }
+
 }

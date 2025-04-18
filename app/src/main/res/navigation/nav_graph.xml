@@ -16,6 +16,11 @@
     <fragment
         android:id="@+id/timerFragment"
         android:name= "com.example.selfcareapp.BreatheAnimation"
-        android:label="Timer Fragment" />
+        android:label="Timer Fragment" >
+        <action
+            android:id="@+id/action_timerFragment_to_selectionFragment"
+            app:destination="@+id/selectionFragment"/>
+    </fragment>
+
 
 </navigation>

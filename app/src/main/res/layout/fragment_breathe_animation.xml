@@ -12,14 +12,16 @@
         android:id="@+id/text_view_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
         android:fontFamily="@font/gaegu"
         android:text="00:00"
+        android:textColor="@color/DarkBlue"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="60dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_start_pause"
@@ -46,6 +48,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
+    <Button
+        android:id="@+id/btn_select_new_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:backgroundTint="@color/DarkBlue"
+        android:text="Select New Time"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline4"/>
+
     <ImageView
         android:id="@+id/animation_lotus"
         android:layout_width="100dp"
@@ -66,21 +81,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+         />
 
-    <TextView
-        android:id="@+id/tv_ann_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/gaegu"
-        android:text="breathing time.."
-        android:textColor="@color/DarkestBlue"
-        android:textSize="30sp"
-        android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_breathe_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"

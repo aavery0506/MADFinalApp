@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="15dp"
-            android:hint="mm/dd/yyyy"
+            android:hint="yyyy/mm/dd"
             android:inputType="date"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/DarkestBlue"

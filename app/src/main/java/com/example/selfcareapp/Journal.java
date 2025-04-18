@@ -27,6 +27,7 @@ public class Journal extends AppCompatActivity {
     private ArrayList<JournalModel> journalList;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +40,8 @@ public class Journal extends AppCompatActivity {
         //connect to Firebase
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference();
+
+
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -58,7 +61,7 @@ public class Journal extends AppCompatActivity {
                 Toast toast = Toast.makeText(context,text,duration);
                 toast.show();
                 //add entry to the database
-                JournalModel journal = new JournalModel(binding.etTitleJournal.getText().toString(),
+                JournalModel journal = new JournalModel(myRef.push().getKey(),binding.etTitleJournal.getText().toString(),
                         binding.etDateJournal.getText().toString(),
                         binding.etEntryJournal.getText().toString());
 

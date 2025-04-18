@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
@@ -39,7 +41,6 @@ public class BreatheAnimation extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -80,9 +81,23 @@ public class BreatheAnimation extends Fragment {
             }
         });
 
-
+        //select new time, go back to selection fragment
+        binding.btnSelectNewTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateBack();
+            }
+        });
 
         return binding.getRoot();
+    }
+
+    private void navigateBack() {
+        if(countDownTimer != null){
+            countDownTimer.cancel();
+        }
+        NavController navController = Navigation.findNavController(getView());
+        navController.navigateUp();
     }
 
     @Override
@@ -100,8 +115,8 @@ public class BreatheAnimation extends Fragment {
     }
 
     private void updateCountDownText() {
-        int mins = (int)(timeLeftInMS/1000)/60;
-        int secs = (int)(timeLeftInMS/100)%60;
+        int mins = (int)(timeLeftInMS/1000) / 60;
+        int secs = (int)(timeLeftInMS/1000) % 60;
 
         String formatedTime = String.format(Locale.getDefault(),"%02d:%02d",mins,secs);
         binding.textViewTimer.setText(formatedTime);
@@ -129,7 +144,7 @@ public class BreatheAnimation extends Fragment {
         binding.btnStartPause.setText("Pause");
         binding.btnReset.setVisibility(View.INVISIBLE);
     }
-    
+
     private void pauseTimer(){
         countDownTimer.cancel();
         timerRunning = false;
@@ -144,11 +159,6 @@ public class BreatheAnimation extends Fragment {
         binding.btnStartPause.setVisibility(View.VISIBLE);
     }
 
-    public void updateText(String text){
-        binding.tvAnnTime.setText(text);
-    }
-
-    //This is not working and I'm not sure how to get it to work.
     public void goHome(){
         binding.animationLotus.setOnClickListener(new View.OnClickListener() {
             @Override
