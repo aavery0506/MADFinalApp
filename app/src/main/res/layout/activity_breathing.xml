@@ -7,31 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".Breathing">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.70" />
+
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fcv_animation"
-        android:name="com.example.selfcareapp.BreatheAnimation"
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fcv_select"
-        android:name="com.example.selfcareapp.BreatheSelect"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        app:defaultNavHost = "true"
+        app:navGraph = "@navigation/nav_graph"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
