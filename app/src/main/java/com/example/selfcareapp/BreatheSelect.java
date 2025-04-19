@@ -1,6 +1,7 @@
 package com.example.selfcareapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -49,6 +50,15 @@ public class BreatheSelect extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding= FragmentBreatheSelectBinding.inflate(inflater,container,false);
+
+        //click on lotus to go home
+        binding.selectLotus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), HomeScreen.class);
+                startActivity(intent);
+            }
+        });
         return binding.getRoot();
     }
 

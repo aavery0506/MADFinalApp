@@ -18,13 +18,7 @@ import com.example.selfcareapp.databinding.FragmentBreatheAnimationBinding;
 
 import java.util.Locale;
 
-/*TODO:
-   figure out animation:
-    -set up timer
-    -change image based on time
-   set up lotus to go to home screen:
-    -start new activity from fragment?
- */
+
 public class BreatheAnimation extends Fragment {
     FragmentBreatheAnimationBinding binding;
     private BreatheAnimation.AnimateListener activityCallback;

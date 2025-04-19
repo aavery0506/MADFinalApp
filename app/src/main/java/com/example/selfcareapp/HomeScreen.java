@@ -9,13 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.selfcareapp.databinding.ActivityHomeScreenBinding;
-
-import java.util.ArrayList;
 
 public class HomeScreen extends AppCompatActivity {
     ActivityHomeScreenBinding binding;
@@ -41,7 +36,7 @@ public class HomeScreen extends AppCompatActivity {
         binding.HomeBreathe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeScreen.this,Breathing.class);
+                Intent intent = new Intent(HomeScreen.this, Breathe.class);
                 startActivity(intent);
             }
         });

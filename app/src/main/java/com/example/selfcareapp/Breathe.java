@@ -10,11 +10,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.selfcareapp.databinding.ActivityBreathingBinding;
 
-public class Breathing extends AppCompatActivity implements BreatheSelect.SelectListener,BreatheAnimation.AnimateListener{
+public class Breathe extends AppCompatActivity implements BreatheSelect.SelectListener,BreatheAnimation.AnimateListener{
 
     ActivityBreathingBinding binding;
 

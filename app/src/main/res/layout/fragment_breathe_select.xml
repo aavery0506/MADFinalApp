@@ -9,97 +9,119 @@
     tools:context=".BreatheSelect">
 
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/gaegu"
-        android:text="Select Breathing Time"
-        android:textColor="@color/DarkestBlue"
-        android:textSize="30sp"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/select_lotus"
+        android:layout_width="100dp"
+        android:layout_height="65dp"
+        android:src="@drawable/lotus_simple"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/DarkestBlue" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_select_brethe"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
 
-    </TextView>
-
-    <RadioGroup
-        android:id="@+id/rg_minutes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        android:showDividers="beginning|middle|end"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
-
-        <RadioButton
-            android:id="@+id/oneMin"
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="false"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:fontFamily="@font/gaegu"
-            android:text="1 Min"
+            android:text="Select Breathing Time"
             android:textColor="@color/DarkestBlue"
-            android:textSize="20sp"
+            android:textSize="35sp"
             android:textStyle="bold"
-            app:buttonTint = "@color/DarkBlue"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioButton
-            android:id="@+id/twoMin"
+        <RadioGroup
+            android:id="@+id/rg_breathe_select"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView2">
+
+            <RadioButton
+                android:id="@+id/oneMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:fontFamily="@font/gaegu"
+                android:text="1 Min"
+                android:textColor="@color/DarkestBlue"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:buttonTint="@color/DarkBlue" />
+
+            <RadioButton
+                android:id="@+id/twoMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:fontFamily="@font/gaegu"
+                android:text="2 Mins"
+                android:textColor="@color/DarkestBlue"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:buttonTint="@color/DarkBlue" />
+
+            <RadioButton
+                android:id="@+id/fiveMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:fontFamily="@font/gaegu"
+                android:text="5 Mins"
+                android:textColor="@color/DarkestBlue"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:buttonTint="@color/DarkBlue" />
+
+            <RadioButton
+                android:id="@+id/tenMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:fontFamily="@font/gaegu"
+                android:text="10 Mins"
+                android:textColor="@color/DarkestBlue"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:buttonTint="@color/DarkBlue" />
+
+        </RadioGroup>
+
+
+        <Button
+            android:id="@+id/btn_select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="false"
-            android:fontFamily="@font/gaegu"
-            android:text="2 Mins"
-            android:textColor="@color/DarkestBlue"
+            android:backgroundTint="@color/DarkBlue"
+            android:text="Select"
+            android:textColor="@color/white"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:buttonTint = "@color/DarkBlue"/>
-
-        <RadioButton
-            android:id="@+id/fiveMin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:fontFamily="@font/gaegu"
-            android:text="5 Mins"
-            android:textColor="@color/DarkestBlue"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:buttonTint = "@color/DarkBlue"/>
-
-        <RadioButton
-            android:id="@+id/tenMin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:fontFamily="@font/gaegu"
-            android:text="10 Mins"
-            android:textColor="@color/DarkestBlue"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:buttonTint = "@color/DarkBlue"/>
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/btn_select"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/DarkBlue"
-        android:text="Select"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rg_minutes" />
-
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rg_breathe_select"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="20dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

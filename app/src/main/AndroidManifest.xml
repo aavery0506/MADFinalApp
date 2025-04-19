@@ -30,7 +30,7 @@
             android:name=".Journal"
             android:exported="false" />
         <activity
-            android:name=".Breathing"
+            android:name=".Breathe"
             android:exported="false" />
         <activity
             android:name=".Affirmations"
