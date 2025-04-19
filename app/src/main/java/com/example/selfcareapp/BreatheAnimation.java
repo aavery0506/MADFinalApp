@@ -2,6 +2,7 @@ package com.example.selfcareapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.os.CountDownTimer;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +28,9 @@ public class BreatheAnimation extends Fragment {
     private CountDownTimer countDownTimer;
     private boolean timerRunning = false;
     private long timeLeftInMS;
+
+    //haptics
+    private Vibrator vibrator;
 
     public interface AnimateListener{void goHome();}
 
@@ -46,14 +52,19 @@ public class BreatheAnimation extends Fragment {
         timeLeftInMS = TimerSettings.getInstance().getSelectedTimeInMS();
         updateCountDownText();
 
+        //initalize vibrator
+        vibrator = (Vibrator)requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
+
         //start timer
         binding.btnStartPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hapticFeedback(true);
                 if(timerRunning){
                     pauseTimer();
                 }else{
                     startTimer();
+
                 }
             }
         });
@@ -108,6 +119,7 @@ public class BreatheAnimation extends Fragment {
         binding = null;
     }
 
+    //Timer methods
     private void updateCountDownText() {
         int mins = (int)(timeLeftInMS/1000) / 60;
         int secs = (int)(timeLeftInMS/1000) % 60;
@@ -130,6 +142,7 @@ public class BreatheAnimation extends Fragment {
                 binding.btnStartPause.setText("Start");
                 binding.btnStartPause.setVisibility(View.INVISIBLE);
                 binding.btnReset.setVisibility(View.VISIBLE);
+                hapticFeedback(false);
 
             }
         }.start();
@@ -146,6 +159,7 @@ public class BreatheAnimation extends Fragment {
         binding.btnReset.setVisibility(View.VISIBLE);
     }
 
+
     public void resetTimer(){
         timeLeftInMS = TimerSettings.getInstance().getSelectedTimeInMS();
         updateCountDownText();
@@ -153,6 +167,7 @@ public class BreatheAnimation extends Fragment {
         binding.btnStartPause.setVisibility(View.VISIBLE);
     }
 
+    //helper methods
     public void goHome(){
         binding.animationLotus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,6 +176,23 @@ public class BreatheAnimation extends Fragment {
                 startActivity(intent);
             }
         });
+    }
+
+    private void hapticFeedback(boolean isButtonPressed){
+        //check to see if vibrator is available
+        if(vibrator == null || !vibrator.hasVibrator()){
+            return;
+        }
+        if (isButtonPressed) {
+            //short vibration for button press
+            VibrationEffect effect = VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE);
+            vibrator.vibrate(effect);
+        } else {
+            //pattern for timer completion: vibrate 250ms, sleep 100ms, vibrate 250ms
+            long[] pattern = {0, 250, 100, 250};
+            VibrationEffect effect = VibrationEffect.createWaveform(pattern, -1);
+            vibrator.vibrate(effect);
+        }
     }
 
 }

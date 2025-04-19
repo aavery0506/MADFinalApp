@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightestBlue"
+    android:background="@color/LightBlue"
     tools:context=".BreatheAnimation">
 
     <TextView
@@ -27,26 +27,26 @@
         android:id="@+id/btn_start_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start"
-        app:layout_constraintTop_toBottomOf="@id/text_view_timer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/DarkBlue"
+        android:text="Start"
         android:textColor="@color/white"
-        android:backgroundTint="@color/DarkBlue"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_timer" />
 
     <Button
         android:id="@+id/btn_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reset"
-        android:visibility="invisible"
-        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/DarkBlue"
-        app:layout_constraintTop_toBottomOf="@id/btn_start_pause"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="Reset"
+        android:textColor="@color/white"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_start_pause" />
 
     <Button
         android:id="@+id/btn_select_new_time"
@@ -59,7 +59,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline4"/>
+        app:layout_constraintTop_toBottomOf="@id/guideline4" />
 
     <ImageView
         android:id="@+id/animation_lotus"
@@ -73,17 +73,15 @@
 
     <ImageView
         android:id="@+id/iv_breathe_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/ic_breathe_image_foreground"
+        android:layout_width="305dp"
+        android:layout_height="622dp"
+        android:src="@drawable/ic_launcher_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-         />
-
-
+        app:layout_constraintVertical_bias="0.692" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
