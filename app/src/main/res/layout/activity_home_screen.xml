@@ -55,7 +55,8 @@
         android:fontFamily="@font/gaegu"
         android:text="Journal"
         android:textColor="@color/white"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:hapticFeedbackEnabled="true"/>
 
     <Button
         android:id="@+id/HomeBreathe"
@@ -65,7 +66,8 @@
         android:fontFamily="@font/gaegu"
         android:text="Breathe"
         android:textColor="@color/white"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:hapticFeedbackEnabled="true"/>
 
     <Button
         android:id="@+id/HomeGoals"
@@ -76,6 +78,7 @@
         android:text="Goals"
         android:textColor="@color/white"
         android:textSize="30sp"
+        android:hapticFeedbackEnabled="true"
          />
     <Button
         android:id="@+id/HomeAffirmations"
@@ -86,6 +89,7 @@
         android:text="Affirmations"
         android:textColor="@color/white"
         android:textSize="30sp"
+        android:hapticFeedbackEnabled="true"
         />
 
 

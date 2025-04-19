@@ -33,7 +33,6 @@
             android:id="@+id/jcard_show_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/gaegu"
             android:textColor="@color/DarkestBlue"
             android:text="Title Here..."
             android:textSize="20sp"

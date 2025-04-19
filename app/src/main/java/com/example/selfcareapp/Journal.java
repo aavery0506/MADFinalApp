@@ -86,6 +86,9 @@ public class Journal extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 
+
+
+
         //floating action button for new entry
         binding.fabAddEntry.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,8 +105,16 @@ public class Journal extends AppCompatActivity {
             }
         });
 
+        //floating action button for view all entries
+        binding.fabAllEntries.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadJournalEntries();
+            }
+        });
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.coordinator_layout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -119,8 +130,6 @@ public class Journal extends AppCompatActivity {
             }
         });
     }
-
-
 
 
     //adding journal entry methods
@@ -169,9 +178,8 @@ public class Journal extends AppCompatActivity {
         });
 
         dialog.show();
-
-
     }
+
     //Method to save journal to database
     private void saveJournalEntry(String title, String date, String entry){
         Log.d("journal","Saving entry with date: "+ date);
