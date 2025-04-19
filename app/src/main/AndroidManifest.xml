@@ -23,7 +23,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Journal"
+            android:name=".LoginScreen"
             android:exported="false" />
         <activity
             android:name=".HomeScreen"
@@ -32,10 +32,10 @@
             android:name=".Breathing"
             android:exported="false" />
         <activity
-            android:name=".LoginScreen"
+            android:name=".Affirmations"
             android:exported="false" />
         <activity
-            android:name=".Affirmations"
+            android:name=".Journal"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

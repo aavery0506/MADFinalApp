@@ -51,6 +51,7 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
 
+
     // Retrofit
     implementation(libs.retrofit)
 
