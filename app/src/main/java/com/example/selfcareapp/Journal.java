@@ -1,5 +1,6 @@
 package com.example.selfcareapp;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -25,14 +27,23 @@ import com.example.selfcareapp.databinding.ActivityJournalBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class Journal extends AppCompatActivity {
@@ -41,6 +52,10 @@ public class Journal extends AppCompatActivity {
     DatabaseReference myRef;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private ArrayList<JournalModel> journalList;
+    private ArrayList<JournalModel> filteredList;
+    RecyclerView recyclerView;
+    JournalRecyclerAdapter adapter;
+
 
 
 
@@ -57,31 +72,33 @@ public class Journal extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference();
 
+        //recycler view set up
+        //recycler View set up
+        recyclerView =findViewById(R.id.rv_journal);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Check if user is signed in, if not, sign in anonymously
-        if (mAuth.getCurrentUser() == null) {
-            mAuth.signInAnonymously()
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // User is signed in anonymously
-                                Log.d("Authentication", "signInAnonymously:success");
-                            } else {
-                                // Sign in failed
-                                Log.w("Authentication", "signInAnonymously:failure", task.getException());
-                                Toast.makeText(Journal.this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-        }
+        //initialize lists
+        journalList = new ArrayList<>();
+        filteredList = new ArrayList<>();
 
-        //floating action button
+        //initialize adapter
+        adapter = new JournalRecyclerAdapter(Journal.this,journalList);
+        recyclerView.setAdapter(adapter);
+
+
+        //floating action button for new entry
         binding.fabAddEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addNewJournalEntry();
+            }
+        });
+
+        //floating action button for searching
+        binding.fabDateSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePickerDialog();
             }
         });
 
@@ -92,31 +109,7 @@ public class Journal extends AppCompatActivity {
             return insets;
         });
 
-        //save entry to data base when save button clicked
-        binding.btnSaveJournal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*
-                //add entry to the database
-                JournalModel journal = new JournalModel(myRef.push().getKey(),binding.etTitleJournal.getText().toString(),
-                        binding.etDateJournal.getText().toString(),
-                        binding.etEntryJournal.getText().toString());
 
-                //TODO: save journals based on user, currently all pushing to one place
-                myRef.child("Journal Entries").push().setValue(journal);*/
-
-                resetEntry(); //clear input text
-
-            }
-        });
-        //click on search image to go to search activity
-        binding.ivSearchJournalpg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Journal.this, JournalSearch.class);
-                startActivity(intent);
-            }
-        });
         //click on Lotus to go Home
         binding.ivLotusJournal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,14 +120,10 @@ public class Journal extends AppCompatActivity {
         });
     }
 
-    //reset text input fields
-    private void resetEntry() {
-        binding.etEntryJournal.setText("");
-        binding.etDateJournal.setText("");
-        binding.etTitleJournal.setText("");
-    }
 
-    //get the data for the new journal entry
+
+
+    //adding journal entry methods
     private void addNewJournalEntry() {
 
         //Create custom dialog
@@ -183,7 +172,9 @@ public class Journal extends AppCompatActivity {
 
 
     }
+    //Method to save journal to database
     private void saveJournalEntry(String title, String date, String entry){
+        Log.d("journal","Saving entry with date: "+ date);
         String id = myRef.push().getKey();
         if(id!=null){
             //create new entry
@@ -203,4 +194,111 @@ public class Journal extends AppCompatActivity {
         }
     }
 
-}
+    //Search by date methods
+    //Method to search by date
+    private void searchByDate(final String dateToSearch) {
+        Log.d("journal","Searching for date: "+dateToSearch);
+        // Method 1: Firebase Query (more efficient)
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+
+        dbRef.orderByChild("date").equalTo(dateToSearch)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        Log.d("journal","total entries in db:"+dataSnapshot.getChildrenCount());
+                        List<JournalModel> searchResults = new ArrayList<>();
+
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            JournalModel entry = snapshot.getValue(JournalModel.class);
+                            if (entry != null) {
+                                Log.d("journal","entry date in db: "+ entry.getDate());
+                                searchResults.add(entry);
+                            }
+                        }
+
+                        // Update the RecyclerView with search results
+                        adapter.updateJournalList((ArrayList<JournalModel>) searchResults);
+
+                        // Show message if no entries found for this date
+                        if (searchResults.isEmpty()) {
+                            Toast.makeText(Journal.this, "No entries found for " + dateToSearch,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Toast.makeText(Journal.this, "Error: " + databaseError.getMessage(),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+    private void showDatePickerDialog() {
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(Journal.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                String dateStr = String.format(Locale.US,"%04d-%02d-%02d",year,month+1,dayOfMonth);
+                searchByDate(dateStr);
+
+                Snackbar.make(findViewById(R.id.coordinator_layout),"Showing entries for: "+dateStr,Snackbar.LENGTH_LONG).setAction("Show All", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        loadJournalEntries();
+                    }
+                }).show();
+            }
+        }, year,month,day);
+        datePickerDialog.show();
+    }
+
+    //recycler view methods
+    private void loadJournalEntries(){
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<JournalModel> allEntries = new ArrayList<>();
+
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    JournalModel entry = snapshot.getValue(JournalModel.class);
+                    if(entry != null){
+                        allEntries.add(entry);
+                    }
+                }
+                Collections.sort(allEntries, new Comparator<JournalModel>() {
+                    @Override
+                    public int compare(JournalModel o1, JournalModel o2) {
+                        // Add null checks before comparison
+                        if (o1.getDate() == null && o2.getDate() == null) {
+                            return 0; // Both dates are null, consider them equal
+                        } else if (o1.getDate() == null) {
+                            return 1; // Move entries with null dates to the end
+                        } else if (o2.getDate() == null) {
+                            return -1; // Move entries with null dates to the end
+                        }
+                        // If neither date is null, compare normally (newest first)
+                        return o2.getDate().compareTo(o1.getDate());
+                    }
+                });
+                journalList = (ArrayList<JournalModel>) allEntries;
+                //update adapter
+                adapter.updateJournalList((ArrayList<JournalModel>) allEntries);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Journal.this,"Error loading entries: "+error.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+
+
+}//ending bracket DON'T DELETE!
+
+

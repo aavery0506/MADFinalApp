@@ -45,89 +45,79 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
+        app:layout_constraintBottom_toTopOf="@id/guideline3"
         app:layout_constraintVertical_bias="0.5">
 
-        <EditText
-            android:id="@+id/et_title_journal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="30dp"
-            android:hint="Title"
-            android:inputType="text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/DarkestBlue"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guideline" />
-
-        <EditText
-            android:id="@+id/et_date_journal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="15dp"
-            android:hint="yyyy/mm/dd"
-            android:inputType="date"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/DarkestBlue"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guideline" />
-
-        <EditText
-            android:id="@+id/et_entry_journal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="15dp"
-            android:hint="Journal Entry"
-            android:inputType="textMultiLine"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/DarkestBlue"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guideline" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/fab_add_entry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:src="@drawable/baseline_save_24" />
+            android:layout_gravity="top|left"
+            android:text="New Entry"
+            app:icon="@drawable/baseline_add_24"
+            app:iconTint="@color/MedBlue"
+            android:backgroundTint="@color/DarkBlue"
+            android:textColor="@color/white"/>
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/coordinator_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".Journal">
+
+            <!-- Your existing layout content goes here -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!-- RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <!-- FAB for date search -->
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fab_date_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_gravity="bottom|left"
+                android:text="Search Entries"
+                app:icon="@drawable/baseline_search_24"
+                app:iconTint="@color/MedBlue"
+                android:backgroundTint="@color/DarkBlue"
+                android:textColor="@color/white"/>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_journal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <Button
-        android:id="@+id/btn_save_journal"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="138dp"
-        android:layout_marginBottom="20dp"
-        android:layout_weight="1"
-        android:backgroundTint="@color/DarkBlue"
-        android:gravity="center"
-        android:text="Save Entry"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_journal" />
-
-    <ImageView
-        android:id="@+id/iv_search_journalpg"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="36dp"
-        android:baselineAlignBottom="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_journal"
-        app:layout_constraintVertical_bias="0.882"
-        app:srcCompat="@drawable/baseline_search_24" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
