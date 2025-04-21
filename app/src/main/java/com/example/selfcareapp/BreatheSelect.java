@@ -2,6 +2,7 @@ package com.example.selfcareapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -83,8 +84,9 @@ public class BreatheSelect extends Fragment {
 
     public void buttonClicked(View view){
         String time = "Please select a time"; //default display text
-        long timeInMS;
-        int mins;
+        //default to 1 min
+        long timeInMS = 60000;
+        int mins = 1;
 
         if (binding.oneMin.isChecked()){
             time = "1 Minute";
@@ -102,9 +104,12 @@ public class BreatheSelect extends Fragment {
             time = "10 Minutes";
             mins = 10;
             timeInMS = 600000;
-        }else{
-            mins = 1;
-            timeInMS = 60000;
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            if (!binding.customTimeEntry.getText().isEmpty()) {
+                time = binding.customTimeEntry.getText().toString() + " Minutes";
+                mins = Integer.parseInt(binding.customTimeEntry.getText().toString());
+                timeInMS = mins * 60000L;
+            }
         }
         //save selected time to singleton
         TimerSettings.getInstance().setSelectedTimeInMS(timeInMS);

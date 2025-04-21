@@ -21,8 +21,6 @@ public class SetNewGoal extends Fragment {
     private FragmentSetNewGoalBinding binding;
     private GoalHelper repository;
 
-
-
     public SetNewGoal() {
         // Required empty public constructor
     }
