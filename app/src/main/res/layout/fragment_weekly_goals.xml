@@ -119,7 +119,8 @@
                 android:layout_height="wrap_content"
                 android:text="Thursday"
                 android:textColor="@color/DarkBlue"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
             <CheckBox
                 android:layout_width="wrap_content"
