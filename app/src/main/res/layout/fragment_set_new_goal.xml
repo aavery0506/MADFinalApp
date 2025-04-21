@@ -48,29 +48,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Duration: "
+                android:text="Daily Minutes: "
                 android:textColor="@color/DarkBlue"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-
-            <CheckBox
-                android:id="@+id/ck_daily"
+            <EditText
+                android:id="@+id/daily_entry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Daily"
+                android:hint="Enter number of minutes"
                 android:textColor="@color/DarkBlue"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <CheckBox
-                android:id="@+id/ck_weekly"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Weekly"
-                android:textColor="@color/DarkBlue"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textColorHint="@color/white" />
 
         </LinearLayout>
 
@@ -88,13 +77,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Breathe Minutes: "
+                android:text="Weekly Minutes: "
                 android:textColor="@color/DarkBlue"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/time_entry"
+                android:id="@+id/weekly_entry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Enter number of minutes"
