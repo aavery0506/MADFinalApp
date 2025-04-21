@@ -21,6 +21,18 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
+/*
+Login Screen is the start of the app where users can login or create an account.
+
+Functionality:
+    -User can enter credentials to login to their account
+    -User can enter credentials and sign up for an account
+    -User verification through FirebaseAuthentication
+    -On successful login, brings you to the HomeScreen
+
+Concepts from class:
+
+ */
 public class LoginScreen extends AppCompatActivity {
 
     ActivityLoginScreenBinding binding;

@@ -46,7 +46,41 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+/*
+The journal class is used for the creation and display of journals
+
+Functionality:
+    - Create a journal entry and save it to a Firebase Realtime Database
+    - Display previous journal entries
+    - Search for and show journals by a specific date
+    - Used the JournalModel class and the JournalRecyclerAdapter class
+
+Class concepts shown:
+    -Activity binding
+    -Firebase
+        -Storing data
+        -Retrieving data
+        -Utilizing data
+    -RecyclerView
+        -adding data
+        -showing data
+        -updating on data change
+    -Design Elements
+        -Floating Action Buttons
+        -image view
+        -text view
+        -constraint layout
+        -guidelines
+        -linear layout
+     -Listeners
+        -setOnClickListeners
+        -addOnCompleteListener
+        -addValueEventListener
+     -Toast
+     */
 public class Journal extends AppCompatActivity {
+
+    //class variable set up.
     ActivityJournalBinding binding;
     FirebaseDatabase database;
     DatabaseReference myRef;
@@ -57,13 +91,12 @@ public class Journal extends AppCompatActivity {
     JournalRecyclerAdapter adapter;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
 
+        //set the view utilizing binding
         binding = ActivityJournalBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
@@ -72,7 +105,6 @@ public class Journal extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference();
 
-        //recycler view set up
         //recycler View set up
         recyclerView =findViewById(R.id.rv_journal);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -84,10 +116,6 @@ public class Journal extends AppCompatActivity {
         //initialize adapter
         adapter = new JournalRecyclerAdapter(Journal.this,journalList);
         recyclerView.setAdapter(adapter);
-
-
-
-
 
         //floating action button for new entry
         binding.fabAddEntry.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +181,8 @@ public class Journal extends AppCompatActivity {
         editDate.setText(today);
 
         // Set click listeners
+
+        //Save button to get the input and create a new journal entry
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,6 +200,7 @@ public class Journal extends AppCompatActivity {
             }
         });
 
+        //close the dialog prompt if cancel is pressed
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -187,7 +218,7 @@ public class Journal extends AppCompatActivity {
         if(id!=null){
             //create new entry
             JournalModel newEntry = new JournalModel(id,title,date,entry);
-            //save to Firebase
+            //save to Firebase with toast confirmation
             myRef.child(id).setValue(newEntry)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -241,6 +272,8 @@ public class Journal extends AppCompatActivity {
                     }
                 });
     }
+
+    //Method to have the calendar pop up to select a date with snackbar notification
     private void showDatePickerDialog() {
         final Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -265,6 +298,7 @@ public class Journal extends AppCompatActivity {
     }
 
     //recycler view methods
+    //Method to load all the journal entries from the database
     private void loadJournalEntries(){
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
