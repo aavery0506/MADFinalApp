@@ -2,6 +2,7 @@ package com.example.selfcareapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
@@ -9,12 +10,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import com.example.selfcareapp.databinding.ActivityGoalsBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 public class Goals extends AppCompatActivity {
 ActivityGoalsBinding binding;
+private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,8 @@ ActivityGoalsBinding binding;
 
         new TabLayoutMediator(binding.tabLayoutGoals,binding.goalsVp,(tab,position)->
                 tab.setText(adapter.getPageTitle(position))).attach();
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

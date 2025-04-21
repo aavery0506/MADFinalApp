@@ -16,9 +16,11 @@ import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.selfcareapp.databinding.FragmentBreatheAnimationBinding;
 
+import java.time.LocalDate;
 import java.util.Locale;
 
 
@@ -28,6 +30,9 @@ public class BreatheAnimation extends Fragment {
     private CountDownTimer countDownTimer;
     private boolean timerRunning = false;
     private long timeLeftInMS;
+
+    private GoalHelper repository;
+    private String exerciseType;
 
     //haptics
     private Vibrator vibrator;
@@ -41,6 +46,8 @@ public class BreatheAnimation extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        repository = new GoalHelper(requireContext());
     }
 
     @Override
@@ -50,10 +57,16 @@ public class BreatheAnimation extends Fragment {
         binding = FragmentBreatheAnimationBinding.inflate(inflater,container,false);
         //get the selected time
         timeLeftInMS = TimerSettings.getInstance().getSelectedTimeInMS();
+
+
         updateCountDownText();
 
         //initalize vibrator
         vibrator = (Vibrator)requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
+
+        //initialize repository
+        repository = new GoalHelper(getContext());
+        exerciseType = "Standard";
 
         //start timer
         binding.btnStartPause.setOnClickListener(new View.OnClickListener() {
@@ -138,6 +151,7 @@ public class BreatheAnimation extends Fragment {
 
             @Override
             public void onFinish() {
+                onExerciseCompleted(); //record the session
                 timerRunning =false;
                 binding.btnStartPause.setText("Start");
                 binding.btnStartPause.setVisibility(View.INVISIBLE);
@@ -158,7 +172,6 @@ public class BreatheAnimation extends Fragment {
         binding.btnStartPause.setText("Start");
         binding.btnReset.setVisibility(View.VISIBLE);
     }
-
 
     public void resetTimer(){
         timeLeftInMS = TimerSettings.getInstance().getSelectedTimeInMS();
@@ -194,5 +207,39 @@ public class BreatheAnimation extends Fragment {
             vibrator.vibrate(effect);
         }
     }
+
+    private void onExerciseCompleted(){
+        int durationMins = (int)Math.ceil(timeLeftInMS/1000.0);
+        //record session
+        repository.recordSession(durationMins,exerciseType);
+        // show notification if goal is achieved or close
+        notifyGoalProgress();
+    }
+
+    private void notifyGoalProgress(){
+        GoalProgress dailyProgress = repository.getDailyProgress(LocalDate.now());
+
+        if(dailyProgress != null){
+            int percentComp = dailyProgress.getPercentCompleted();
+
+            //feedback based on progress
+            if(percentComp >= 100){
+                showCompletionFeedBack("Daily Goal Achieved!!");
+            } else if (percentComp >= 80) {
+                showCompletionFeedBack("Almost there! " + dailyProgress.getCompletedMinutes() +
+                        " of " + dailyProgress.getGoal().getTargetMinutes() +
+                        " minutes completed");
+            }else {
+                showCompletionFeedBack("Great job! " + dailyProgress.getCompletedMinutes() +
+                        " of " + dailyProgress.getGoal().getTargetMinutes() +
+                        " minutes completed today");
+            }
+        }
+    }
+    //helper toast function
+    private void showCompletionFeedBack(String message){
+        Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
+    }
+
 
 }

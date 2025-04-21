@@ -10,10 +10,15 @@ import android.view.ViewGroup;
 
 import com.example.selfcareapp.databinding.FragmentWeeklyGoalsBinding;
 
+import java.time.LocalDate;
+
 
 public class WeeklyGoals extends Fragment {
 
     private FragmentWeeklyGoalsBinding binding;
+    public GoalHelper repository;
+
+
     public WeeklyGoals() {
         // Required empty public constructor
     }
@@ -29,7 +34,38 @@ public class WeeklyGoals extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentWeeklyGoalsBinding.inflate(inflater,container,false);
-        GoalModel model= GoalModel.getInstance();
+        repository = new GoalHelper(getContext());
+
+        updateProgress();
+
         return binding.getRoot();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        updateProgress();
+    }
+
+    //Method to update weekly progress
+    private void updateProgress(){
+        GoalProgress progress = repository.getWeeklyProgress(LocalDate.now());
+
+        if(progress == null){
+            binding.viewCurrentWgoal.setText("No Weekly Goal Set");
+            binding.weeklyProgressBar.setVisibility(View.INVISIBLE);
+            binding.showTotalWmins.setVisibility(View.INVISIBLE);
+            return;
+        }
+        GoalModel goal = progress.getGoal();
+        int completedMins = progress.getCompletedMinutes();
+        int targetMins = goal.getTargetMinutes();
+        int percentComp = progress.getPercentCompleted();
+
+        binding.viewCurrentWgoal.setText(targetMins + " Minutes");
+        binding.showTotalWmins.setText(completedMins + " / " + targetMins + "Minutes");
+        binding.weeklyProgressBar.setProgress(percentComp);
+        binding.weeklyProgressBar.setVisibility(View.VISIBLE);
+        binding.showTotalWmins.setVisibility(View.VISIBLE);
     }
 }

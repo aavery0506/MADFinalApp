@@ -27,13 +27,6 @@ public class GoalModel {
         this.createdDate = LocalDate.now();//get todays date
     }
 
-    //get instance
-    public static synchronized GoalModel getInstance(){
-        if(instance == null){
-            instance = new GoalModel();
-        }
-        return instance;
-    }
 
     //getters and setters
     public long getId() {return id;}

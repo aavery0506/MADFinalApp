@@ -36,6 +36,7 @@ public class Breathe extends AppCompatActivity implements BreatheSelect.SelectLi
 
     }
 
+
     @Override
     public void onButtonClick(String text, int mins) {
         navigateToAnimationFragment();

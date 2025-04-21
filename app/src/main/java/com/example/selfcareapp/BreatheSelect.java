@@ -15,10 +15,13 @@ import android.view.ViewGroup;
 
 import com.example.selfcareapp.databinding.FragmentBreatheSelectBinding;
 
+import java.time.LocalDate;
+
 
 public class BreatheSelect extends Fragment {
     private FragmentBreatheSelectBinding binding;
     private SelectListener activityCallback;
+    private GoalHelper repository;
 
 
     public interface SelectListener{void onButtonClick(String text, int mins);}
@@ -59,6 +62,11 @@ public class BreatheSelect extends Fragment {
                 startActivity(intent);
             }
         });
+
+        //intialize repository
+        repository = new GoalHelper(getContext());
+        updateProgressText();
+
         return binding.getRoot();
     }
 
@@ -106,6 +114,20 @@ public class BreatheSelect extends Fragment {
     private void navigateToAnnimationFragment(){
         //using Navigation component
         NavController navController = NavHostFragment.findNavController(this);
+    }
+
+    //Method to update progress text
+    private void updateProgressText(){
+        GoalProgress dailyProgress = repository.getDailyProgress(LocalDate.now());
+        if (dailyProgress != null){
+            GoalModel goal = dailyProgress.getGoal();
+            int completedMins = dailyProgress.getCompletedMinutes();
+            int targetMins = goal.getTargetMinutes();
+
+            binding.dailyProgressText.setText("Today's progress: " + completedMins + " / " + targetMins + " Minutes");
+        }else{
+            binding.dailyProgressText.setText("No daily goal set. Set one in Goals!");
+        }
     }
 
     @Override
