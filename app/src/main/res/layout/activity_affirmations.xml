@@ -44,8 +44,6 @@
         android:id="@+id/btn_random_af"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:backgroundTint="@color/DarkBlue"
         android:gravity="center"
@@ -54,21 +52,21 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_afM"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline_af" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_afM" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_afM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.85" />
 
     <TextView
         android:id="@+id/affirmation"
-        android:layout_width="0dp"
+        android:layout_width="329dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/gaegu"
         android:gravity="center"
@@ -77,12 +75,11 @@
         android:textColor="@color/DarkBlue"
         android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/guideline_afL"
-        app:layout_constraintEnd_toStartOf="@id/guideline_afR"
-        app:layout_constraintTop_toBottomOf="@id/guideline_afM"
-        android:layout_marginTop="40dp"
 
-         />
+        app:layout_constraintBottom_toTopOf="@+id/guideline_afM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_af" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_afL"
