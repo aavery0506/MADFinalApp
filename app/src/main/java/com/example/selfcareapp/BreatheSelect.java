@@ -1,5 +1,18 @@
 package com.example.selfcareapp;
+/*
+Breathe Select Fragment
 
+Functionality:
+    -display BreatheSelect Fragment
+    -Allow user to select a preset time or input custom time
+    -On button click
+        -save user selection
+        -go to the BreatheAnimation fragment to start the timer for selected time
+    -update the progress text for goals
+    -uses GoalProgress, GoalHelper, and GoalModel classes
+Concepts from Class:
+
+ */
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -43,7 +56,6 @@ public class BreatheSelect extends Fragment {
         }
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +76,7 @@ public class BreatheSelect extends Fragment {
             }
         });
 
-        //intialize repository
+        //initialize repository
         repository = new GoalHelper(getContext());
         updateProgressText();
 
@@ -82,6 +94,7 @@ public class BreatheSelect extends Fragment {
         });
     }
 
+    //Method to get the correct time selected or inputted when the button is clicked
     public void buttonClicked(View view){
         String time = "Please select a time"; //default display text
         //default to 1 min
@@ -116,6 +129,7 @@ public class BreatheSelect extends Fragment {
         activityCallback.onButtonClick(time,mins);
     }
 
+    //Method to handle navigation to animation fragment
     private void navigateToAnnimationFragment(){
         //using Navigation component
         NavController navController = NavHostFragment.findNavController(this);

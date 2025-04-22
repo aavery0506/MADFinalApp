@@ -1,5 +1,28 @@
 package com.example.selfcareapp;
+/*
+Breathe Animation Fragment
 
+Functionality:
+    -display the BreatheAnimation Fragment
+    -creates AnimateListener interface for goHome function
+    -Gets data from BreatheSelect Fragment for time selected
+    -Implements timer functionality
+        -Ability to start, pause, and reset timer
+        -haptic feedback for the start and end of the timer
+    -updates goals based on time completed
+    -go home when lotus is clicked
+    -ability to go back and select a new time for breathe exercise
+    -Uses TimerSettings, GoalHelper, CountDownTimer, and Vibrator classes
+
+Concepts from Class:
+    -Fragment binding
+    -Intent for new activity
+    -Listeners
+        -setOnClickListeners
+    -Fragments
+    -Fragment lifecycles
+
+ */
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -31,6 +54,7 @@ public class BreatheAnimation extends Fragment {
     private boolean timerRunning = false;
     private long timeLeftInMS;
 
+    //link to goals
     private GoalHelper repository;
     private String exerciseType;
 
@@ -46,7 +70,7 @@ public class BreatheAnimation extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        //initialize repository for goals
         repository = new GoalHelper(requireContext());
     }
 
@@ -58,17 +82,17 @@ public class BreatheAnimation extends Fragment {
         //get the selected time
         timeLeftInMS = TimerSettings.getInstance().getSelectedTimeInMS();
 
-
+        //update the countdown timer text
         updateCountDownText();
 
-        //initalize vibrator
+        //initialize vibrator
         vibrator = (Vibrator)requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
 
-        //initialize repository
+        //initialize repository for goals
         repository = new GoalHelper(getContext());
         exerciseType = "Standard";
 
-        //start timer
+        //start/pause timer
         binding.btnStartPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,14 +134,16 @@ public class BreatheAnimation extends Fragment {
         return binding.getRoot();
     }
 
+    //Method to go back to the BreatheSelect Fragment to select a new time
     private void navigateBack() {
         if(countDownTimer != null){
-            countDownTimer.cancel();
+            countDownTimer.cancel(); //stop the timer
         }
         NavController navController = Navigation.findNavController(getView());
-        navController.navigateUp();
+        navController.navigateUp(); //navigate to the previous fragment
     }
 
+    //stop the timer when the fragment stops
     @Override
     public void onStop(){
         super.onStop();
@@ -133,6 +159,8 @@ public class BreatheAnimation extends Fragment {
     }
 
     //Timer methods
+
+    //Method to get the formated time remaining and update the timer text
     private void updateCountDownText() {
         int mins = (int)(timeLeftInMS/1000) / 60;
         int secs = (int)(timeLeftInMS/1000) % 60;
@@ -141,6 +169,7 @@ public class BreatheAnimation extends Fragment {
         binding.textViewTimer.setText(formatedTime);
     }
 
+    //Method to start the timer given the selected time, also changes "start" to "pause"
     private void startTimer(){
         countDownTimer = new CountDownTimer(timeLeftInMS,1000) {
             @Override
@@ -166,6 +195,7 @@ public class BreatheAnimation extends Fragment {
         binding.btnReset.setVisibility(View.INVISIBLE);
     }
 
+    //Method to pause the timer and change button back to "start", hide reset button
     private void pauseTimer(){
         countDownTimer.cancel();
         timerRunning = false;
@@ -173,6 +203,7 @@ public class BreatheAnimation extends Fragment {
         binding.btnReset.setVisibility(View.VISIBLE);
     }
 
+    //Reset the timer, hide the reset button, and show the start/pause button
     public void resetTimer(){
         timeLeftInMS = TimerSettings.getInstance().getSelectedTimeInMS();
         updateCountDownText();
@@ -181,6 +212,7 @@ public class BreatheAnimation extends Fragment {
     }
 
     //helper methods
+    //Method to go back to the home screen when the lotus is clicked
     public void goHome(){
         binding.animationLotus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,6 +223,7 @@ public class BreatheAnimation extends Fragment {
         });
     }
 
+    //Method to implement haptic feedback for start and end of the timer
     private void hapticFeedback(boolean isButtonPressed){
         //check to see if vibrator is available
         if(vibrator == null || !vibrator.hasVibrator()){
@@ -208,6 +241,7 @@ public class BreatheAnimation extends Fragment {
         }
     }
 
+    //Method to record session when the timer has ended.
     private void onExerciseCompleted(){
 
         long durationMins = (int)Math.ceil(TimerSettings.getInstance().getSelectedTimeInMS()/6000.0);
@@ -217,6 +251,7 @@ public class BreatheAnimation extends Fragment {
         notifyGoalProgress();
     }
 
+    //Method to update goal progress changes
     private void notifyGoalProgress(){
         GoalProgress dailyProgress = repository.getDailyProgress(LocalDate.now());
 
@@ -237,7 +272,7 @@ public class BreatheAnimation extends Fragment {
             }
         }
     }
-    //helper toast function
+    //helper Toast function for completion messages
     private void showCompletionFeedBack(String message){
         Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
     }
