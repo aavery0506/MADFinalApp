@@ -1,5 +1,12 @@
 package com.example.selfcareapp;
+/*
+DailyGoals Fragment
 
+Functionality:
+
+Concepts from class:
+
+ */
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -26,7 +33,6 @@ public class DailyGoals extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -34,7 +40,7 @@ public class DailyGoals extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentDailyGoalsBinding.inflate(inflater,container,false);
         repository = new GoalHelper(getContext());
-
+        //update goal progress
         updateProgress();
 
         // Inflate the layout for this fragment

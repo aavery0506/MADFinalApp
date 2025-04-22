@@ -9,8 +9,25 @@ Functionality:
         -save user selection
         -go to the BreatheAnimation fragment to start the timer for selected time
     -update the progress text for goals
-    -uses GoalProgress, GoalHelper, and GoalModel classes
+    -uses TimerSettings, NavController, GoalProgress, GoalHelper, and GoalModel classes
+
 Concepts from Class:
+    -Fragment binding
+    -Intent for new activity
+    -Listeners
+        -setOnClickListeners
+    -Fragments
+    -Fragment lifecycles
+    -Listeners
+        -setOnClickListeners
+    -Design Elements
+        -Button
+        -TextView
+        -CheckBoxes
+        -EditText
+        -constraint layout
+        -guidelines
+        -linear layout
 
  */
 import android.content.Context;

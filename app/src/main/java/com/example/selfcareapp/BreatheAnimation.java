@@ -21,6 +21,11 @@ Concepts from Class:
         -setOnClickListeners
     -Fragments
     -Fragment lifecycles
+    -Design Elements
+        -image view
+        -text view
+        -constraint layout
+
 
  */
 import android.content.Context;
