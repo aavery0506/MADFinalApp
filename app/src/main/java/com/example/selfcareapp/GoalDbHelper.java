@@ -11,8 +11,26 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-//Helper class for storing and retrieving breathing data
+/*
+Helper class for storing and retrieving breathing data
+
+Functionality:
+    -Creates an SQL database to handle goals
+    -goal functions
+        -add goal
+        -add session
+        -update
+        -delete
+        -query sessions by date range
+
+Concepts from class:
+    -SQLite
+
+
+ */
 public class GoalDbHelper extends SQLiteOpenHelper {
+
+    //Set up variables for database table
     private static final String DATABASE_NAME = "breathing_goals.db";
     private static final int DATABASE_VERSION = 1;
 

@@ -13,6 +13,10 @@ Concepts from Class:
         -SelectListener(fragment)
         -AnimateListener(fragment)
     -getSupportFragmentManager
+    -Design Elements
+        -constraint layout
+        -Fragment Container View
+
  */
 import android.os.Bundle;
 import android.view.View;

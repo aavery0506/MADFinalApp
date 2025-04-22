@@ -3,9 +3,19 @@ package com.example.selfcareapp;
 DailyGoals Fragment
 
 Functionality:
+    -display DailyGoal fragment
+    -display current daily goal
+    -tracks progress for current daily goal based on breathe exercises completed
+    -uses GoalHelper, GoalProgress, and GoalModel classes
 
 Concepts from class:
-
+    -Fragment binding
+    -Fragment lifecycles
+    -Design Elements
+        -text view
+        -constraint layout
+        -guidelines
+        -Progress Bar
  */
 import android.os.Bundle;
 
@@ -19,9 +29,7 @@ import com.example.selfcareapp.databinding.FragmentDailyGoalsBinding;
 
 import java.time.LocalDate;
 
-
 public class DailyGoals extends Fragment {
-
     private FragmentDailyGoalsBinding binding;
     private GoalHelper repository;
 
@@ -50,7 +58,7 @@ public class DailyGoals extends Fragment {
     @Override
     public void onResume(){
         super.onResume();
-        updateProgress();
+        updateProgress(); //update progress
     }
 
     //Method to update progress
@@ -63,11 +71,12 @@ public class DailyGoals extends Fragment {
             return;
         }
 
+        //get current goal
         GoalModel goal = progress.getGoal();
         int completedMins = progress.getCompletedMinutes();
         int targetMins = goal.getTargetMinutes();
         int percentComp = progress.getPercentCompleted();
-
+        //update text views and progress bar
         binding.viewCurrentDgoal.setText(targetMins + " Minutes");
         binding.showTotalDmins.setText(completedMins + " / " + targetMins + "Minutes");
         binding.dailyProgressBar.setProgress(percentComp);

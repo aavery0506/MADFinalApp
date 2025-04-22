@@ -1,8 +1,15 @@
 package com.example.selfcareapp;
 
+/*
+Yes Dr.G I created my own Date class...I did not do my research until it was too late.
+I ended up using elements from the time package for this app
 
-//Yes Dr.G I created my own Date class...I did not do my research until it was too late,
-// I now know there is a java.time package I could have just used.
+
+Date class to set up a date
+
+ */
+
+
 public class Date {
     private int day;
     private int month;

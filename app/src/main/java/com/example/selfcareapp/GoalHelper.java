@@ -1,5 +1,17 @@
 package com.example.selfcareapp;
+/*
+GoalHelper class for handling logic for sessions and goals
+Functionality:
+    -Create a new goal
+    -Record a breathing session
+    -Get progress for daily goal
+    -Get progress for weekly goal
+    -Uses GoalModel, GoalProgress, GoalDbHelper, SessionRecord, and LocalDate classes
 
+Concepts from class:
+    -Utilizing models/helper classes to handle logic for activities and fragments
+
+ */
 import android.content.Context;
 
 import java.time.DayOfWeek;
@@ -7,7 +19,7 @@ import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.List;
 
-//class for handling business logic for sessions and goals
+
 public class GoalHelper {
     private GoalDbHelper dbHelper;
 

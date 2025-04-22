@@ -2,7 +2,19 @@ package com.example.selfcareapp;
 
 import java.time.LocalDate;
 
-//utility class to set up the Model for the creation of a Goal
+/*GoalModel class
+
+Functionality:
+    -Utility class for the creation of a Goal
+        -id
+        -type (DAILY/WEEKLY)
+        -target mins
+        -isActive
+        -date created
+
+Concepts from class:
+    -Utilizing models classes to set up data structures for activities and fragments
+ */
 public class GoalModel {
     //set up class variables
     private long id;

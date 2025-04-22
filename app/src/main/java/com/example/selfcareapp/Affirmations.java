@@ -15,6 +15,13 @@ Concepts from class:
         -setOnClickListeners
     -Intents to start new activity
     -Set new text for a TextView based on activity function
+    -Design Elements
+        -Buttons
+        -image view
+        -text view
+        -constraint layouts
+        -guidelines
+
  */
 import android.content.Intent;
 import android.content.SharedPreferences;
