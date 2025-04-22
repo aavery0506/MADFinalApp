@@ -1,5 +1,9 @@
 package com.example.selfcareapp;
 
+/*
+Class to create a new affirmation for database
+Not being used in current iteration of app
+ */
 public class AffirmationModel {
     private String id;
     private String affirmation;

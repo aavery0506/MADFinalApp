@@ -209,9 +209,10 @@ public class BreatheAnimation extends Fragment {
     }
 
     private void onExerciseCompleted(){
-        int durationMins = (int)Math.ceil(timeLeftInMS/1000.0);
+
+        long durationMins = (int)Math.ceil(TimerSettings.getInstance().getSelectedTimeInMS()/6000.0);
         //record session
-        repository.recordSession(durationMins,exerciseType);
+        repository.recordSession((int) durationMins,exerciseType);
         // show notification if goal is achieved or close
         notifyGoalProgress();
     }

@@ -53,7 +53,7 @@ Functionality:
     - Create a journal entry and save it to a Firebase Realtime Database
     - Display previous journal entries
     - Search for and show journals by a specific date
-    - Used the JournalModel class and the JournalRecyclerAdapter class
+    - Uses the JournalModel class and the JournalRecyclerAdapter class
 
 Class concepts shown:
     -Activity binding

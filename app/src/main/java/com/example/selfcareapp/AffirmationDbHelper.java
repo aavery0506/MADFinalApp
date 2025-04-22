@@ -4,6 +4,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+/*
+Utility class to set up the database for handling affirmations
+This was before I set up the Api
+Not being used in the current iteration of the app
+ */
 
 public class AffirmationDbHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "affirmations.db";
@@ -19,6 +24,7 @@ public class AffirmationDbHelper extends SQLiteOpenHelper {
             + " integer primary key autoincrement, " + COLUMN_TEXT
             + " text not null, " + COLUMN_CATEGORY + " text);";
 
+    //constructor
     public AffirmationDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }

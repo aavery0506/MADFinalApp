@@ -7,6 +7,10 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+
+/*
+Utility class to connect to the affirmation API
+ */
 public class AffirmationApiClient {
     private static final String BASE_URL = "https://www.affirmations.dev/";
     private static AffirmationApiClient instance;
@@ -29,6 +33,7 @@ public class AffirmationApiClient {
         return instance;
     }
 
+    //create the Api service
     public AffirmationApiService getApiService(){
         return retrofit.create(AffirmationApiService.class);
     }

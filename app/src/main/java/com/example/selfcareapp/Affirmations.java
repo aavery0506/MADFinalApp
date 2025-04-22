@@ -1,5 +1,21 @@
 package com.example.selfcareapp;
+/*
+Affirmation Activity class
+Functionality:
+    -Retrieves affirmation from Api
+    -Display affirmation in TextView
+    -Sets up random button to retrieve another affirmation when clicked
+    -Caches data for offline use
+    -utilizes view binding
+    -Uses the AffirmationApiClient class and the Affirmation ApiService Interface
 
+Concepts from class:
+    -Activity binding
+    -Listeners
+        -setOnClickListeners
+    -Intents to start new activity
+    -Set new text for a TextView based on activity function
+ */
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -30,6 +46,7 @@ public class Affirmations extends AppCompatActivity {
         setContentView(view);
 
         fetchAffirmation();
+        //set up random button
         binding.btnRandomAf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +54,7 @@ public class Affirmations extends AppCompatActivity {
             }
         });
 
+        //set up lotus to home
         binding.ivLotusAffirmations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +70,7 @@ public class Affirmations extends AppCompatActivity {
         });
     }
 
+    //Method to fetch a random affirmation from the api
     private void fetchAffirmation() {
         AffirmationApiService apiService = AffirmationApiClient.getInstance().getApiService();
         Call<AffirmationModel> call = apiService.getRandomAffirmation();
@@ -89,7 +108,7 @@ public class Affirmations extends AppCompatActivity {
         });
     }
 
-    //get a reference to apps SharedPreferences file, stores affimation with key "cached_affirmation
+    //get a reference to apps SharedPreferences file, stores affirmation with key "cached_affirmation
     private void saveAffirmationToPrefs(String affirmation){
         SharedPreferences prefs = getPreferences(MODE_PRIVATE); //only the app can retrieve the data
         SharedPreferences.Editor editor = prefs.edit();
@@ -102,4 +121,5 @@ public class Affirmations extends AppCompatActivity {
         SharedPreferences prefs = getPreferences(MODE_PRIVATE);
         return prefs.getString("cached_affirmation","");
     }
+
 }

@@ -1,5 +1,19 @@
 package com.example.selfcareapp;
 
+/*
+Breathe Activity Class
+
+Functionality:
+    -Handles navigation for BreatheSelect and BreatheAnimation Fragments
+
+Concepts from Class:
+    -Activity binding
+    -Fragments
+    -Listeners
+        -SelectListener(fragment)
+        -AnimateListener(fragment)
+    -getSupportFragmentManager
+ */
 import android.os.Bundle;
 import android.view.View;
 
@@ -37,16 +51,19 @@ public class Breathe extends AppCompatActivity implements BreatheSelect.SelectLi
     }
 
 
+    //Method to navigate to BreatheAnimation Fragment when the button is clicked
     @Override
     public void onButtonClick(String text, int mins) {
         navigateToAnimationFragment();
     }
 
+    //Method to handle NavController functionality to BreatheAnimation Fragment
     private void navigateToAnimationFragment() {
         NavController navController = Navigation.findNavController(this,R.id.nav_host_fragment);
         navController.navigate(R.id.action_selectionFragment_to_timerFragment);
     }
 
+    //Utilize the function to go home based on lotus click in BreatheAnimation Fragment
     @Override
     public void goHome(){
         BreatheAnimation breatheAnimation = (BreatheAnimation) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
