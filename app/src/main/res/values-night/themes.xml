@@ -1,34 +1,43 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.SelfCareApp" parent="Theme.Material3.DayNight.NoActionBar">
-
         <item name="backgroundColor">@color/DarkestBlue</item>
-        <item name="backgroundTint">@color/LightestBlue</item>
-        <item name="tint">@color/LightBlue</item>
-        <item name="android:textColor">@color/LightBlue</item>
+        <item name="android:textColorPrimary">@color/LightBlue</item>
+        <item name="android:textColorSecondary">@color/DarkBlue</item>
         <item name="colorPrimary">@color/MedBlue</item>
-        <item name="android:colorSecondary">@color/white</item>
+        <item name="android:colorSecondary">@color/LightBlue</item>
     </style>
 
     <style name="CardStyle" parent="Widget.MaterialComponents.CardView">
-        <item name="cardBackgroundColor">@color/LightestBlue</item>
+        <item name="cardBackgroundColor">@color/MedBlue</item>
         <item name="cardCornerRadius">40dp</item>
         <item name="cardElevation">3dp</item>
     </style>
 
     <style name="ButtonStyle" parent="Widget.AppCompat.Button">
-        <item name="backgroundTint">@color/DarkBlue</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/LightBlue</item>
+        <item name="android:textColor">@color/DarkBlue</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAppearance">@id/normal</item>
     </style>
 
     <style name="HeaderTextStyle">
-        <item name="android:textColor">@color/DarkestBlue</item>
+        <item name="android:textColor">@color/LightBlue</item>
         <item name="fontFamily">@font/beth_ellen</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="Header2TextStyle">
-        <item name="android:textColor">@color/DarkBlue</item>
+        <item name="android:textColor">@color/LightBlue</item>
         <item name="fontFamily">@font/gaegu</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="Base.Widget.Material3.ExtendedFloatingActionButton.">
+        <item name="backgroundTint">@color/LightBlue</item>
+        <item name="android:textColor">@color/DarkBlue</item>
+        <item name="iconTint">@color/DarkBlue</item>
+    </style>
+
+
 </resources>

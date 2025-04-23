@@ -7,7 +7,7 @@
     android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightBlue"
+    android:background="?attr/backgroundColor"
     tools:context=".Journal">
 
     <ImageView
@@ -18,17 +18,17 @@
         android:layout_marginStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/lotus_simple" />
+        app:srcCompat="@drawable/lotus_simple"
+        app:tint="?attr/android:colorSecondary"/>
 
     <TextView
         android:id="@+id/tv_journal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/beth_ellen"
         android:gravity="center"
         android:padding="20dp"
         android:text="Journal"
-        android:textColor="@color/DarkestBlue"
+        style="@style/HeaderTextStyle"
         android:textSize="50sp"
         android:layout_marginTop="50dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
@@ -63,11 +63,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|right"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/DarkBlue"
+        style="@style/Base.Widget.Material3.ExtendedFloatingActionButton."
         android:text="New Entry"
-        android:textColor="@color/white"
         app:icon="@drawable/baseline_add_24"
-        app:iconTint="@color/MedBlue" />
+        />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_all_entries"
@@ -75,11 +74,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/DarkBlue"
+        style="@style/Base.Widget.Material3.ExtendedFloatingActionButton."
         android:text="View All Entries"
-        android:textColor="@color/white"
         app:icon="@drawable/baseline_add_24"
-        app:iconTint="@color/MedBlue" />
+         />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_date_search"
@@ -87,11 +85,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|left"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/DarkBlue"
         android:text="Search Entries"
-        android:textColor="@color/white"
         app:icon="@drawable/baseline_search_24"
-        app:iconTint="@color/MedBlue" />
+        style="@style/Base.Widget.Material3.ExtendedFloatingActionButton." />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"

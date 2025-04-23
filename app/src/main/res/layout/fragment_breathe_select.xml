@@ -16,7 +16,7 @@
         android:src="@drawable/lotus_simple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/DarkestBlue" />
+        app:tint="?attr/android:colorSecondary" />
 
     <LinearLayout
         android:id="@+id/ll_select_brethe"

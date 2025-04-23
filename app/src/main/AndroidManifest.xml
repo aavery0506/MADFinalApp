@@ -18,9 +18,6 @@
             android:name=".Goals"
             android:exported="false" />
         <activity
-            android:name=".JournalSearch"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity

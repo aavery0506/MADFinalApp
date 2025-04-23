@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightBlue"
+    android:background="?attr/backgroundColor"
     tools:context=".BreatheAnimation">
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_marginTop="108dp"
         android:fontFamily="@font/gaegu"
         android:text="00:00"
-        android:textColor="@color/DarkBlue"
+        android:textColor="?attr/android:textColorPrimary"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,9 +28,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/DarkBlue"
+        style="@style/ButtonStyle"
         android:text="Start"
-        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_view_timer" />
@@ -40,9 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/DarkBlue"
+        style="@style/ButtonStyle"
         android:text="Reset"
-        android:textColor="@color/white"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,9 +51,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="26dp"
-        android:backgroundTint="@color/DarkBlue"
         android:text="Select New Time"
-        android:textColor="@color/white"
+        style="@style/ButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +65,7 @@
         android:src="@drawable/lotus_simple"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/DarkestBlue" />
+        app:tint="?attr/android:colorSecondary" />
 
 
     <ImageView

@@ -13,9 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:fontFamily="@font/beth_ellen"
         android:text="Goals"
-        android:textColor="@color/DarkestBlue"
+        style="@style/HeaderTextStyle"
         android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/tabLayoutGoals"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lotus_simple"
-        app:tint="@color/DarkestBlue" />
+        app:tint="?attr/android:colorSecondary" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"

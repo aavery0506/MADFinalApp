@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightBlue"
+    android:background="?attr/backgroundColor"
     tools:context=".Affirmations">
 
     <ImageView
@@ -16,17 +16,17 @@
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/lotus_simple" />
+        app:srcCompat="@drawable/lotus_simple"
+        app:tint="?attr/android:colorSecondary"/>
 
     <TextView
         android:id="@+id/tv_affirmations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/beth_ellen"
+        style="@style/HeaderTextStyle"
         android:gravity="center"
         android:padding="20dp"
         android:text="Affirmation"
-        android:textColor="@color/DarkestBlue"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_af"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,13 +45,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:backgroundTint="@color/DarkBlue"
         android:gravity="center"
         android:hapticFeedbackEnabled="true"
         android:text="Random Affirmation"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="normal"
+        android:fontFamily="@font/gaegu"
+        android:textStyle="bold"
+        android:textSize="25sp"
+
+        style="@style/ButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,12 +71,11 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/gaegu"
         android:gravity="center"
-        android:text=""
+        android:text="test"
         android:textAlignment="center"
-        android:textColor="@color/DarkestBlue"
+        android:textColor="?attr/android:textColorPrimary"
         android:textSize="40sp"
         android:textStyle="bold"
-
         app:layout_constraintBottom_toTopOf="@+id/guideline_afM"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
