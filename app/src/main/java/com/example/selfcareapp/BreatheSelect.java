@@ -160,7 +160,7 @@ public class BreatheSelect extends Fragment {
             int completedMins = dailyProgress.getCompletedMinutes();
             int targetMins = goal.getTargetMinutes();
 
-            binding.dailyProgressText.setText("Today's progress: " + completedMins + " / " + targetMins + " Minutes");
+            binding.dailyProgressText.setText("Today's progress: \n" + completedMins + " / " + targetMins + " Minutes");
         }else{
             binding.dailyProgressText.setText("No daily goal set. Set one in Goals!");
         }
