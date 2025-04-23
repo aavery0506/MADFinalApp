@@ -72,7 +72,7 @@
         android:gravity="center"
         android:text=""
         android:textAlignment="center"
-        android:textColor="@color/DarkBlue"
+        android:textColor="@color/DarkestBlue"
         android:textSize="40sp"
         android:textStyle="bold"
 
