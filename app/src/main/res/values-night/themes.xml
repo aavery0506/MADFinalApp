@@ -6,6 +6,12 @@
         <item name="android:textColorSecondary">@color/DarkBlue</item>
         <item name="colorPrimary">@color/MedBlue</item>
         <item name="android:colorSecondary">@color/LightBlue</item>
+        <item name="android:progressBackgroundTint">@color/LightBlue</item>
+        <item name="android:progressTint">@color/LightBlue</item>
+        <item name="tabSelectedTextAppearance">@color/white</item>
+        <item name="cardBackgroundColor">@color/DarkBlue</item>
+        <item name="cardForegroundColor">@color/white</item>
+        <item name="buttonTint">@color/MedBlue</item>
     </style>
 
     <style name="CardStyle" parent="Widget.MaterialComponents.CardView">

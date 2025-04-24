@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightBlue"
+    android:background="?attr/backgroundColor"
     tools:context=".Goals">
 
     <TextView
@@ -46,13 +46,13 @@
         android:id="@+id/tabLayoutGoals"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/DarkBlue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline5"
-        app:tabSelectedTextColor="@color/MedBlue"
-        app:tabTextColor="@color/white">
+        app:tabBackground="?attr/android:colorSecondary"
+        app:tabSelectedTextColor="?attr/tabSelectedTextAppearance"
+        app:tabTextColor="?attr/android:textColorSecondary">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"

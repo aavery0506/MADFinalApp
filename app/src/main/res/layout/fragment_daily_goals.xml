@@ -53,11 +53,11 @@
 
     <TextView
         android:id="@+id/view_current_dgoal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Header2TextStyle"
+        android:layout_width="9dp"
+        android:layout_height="20dp"
         android:text=" "
         android:textAlignment="center"
-        style="@style/Header2TextStyle"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"

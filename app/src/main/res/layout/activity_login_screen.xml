@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/MedBlue"
+    android:background="?attr/backgroundColor"
     android:padding="10dp"
     tools:context=".LoginScreen">
 
@@ -16,10 +16,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="App Name TBD"
-        android:textColor="@color/DarkBlue"
-        android:textStyle="bold"
-        android:fontFamily="@font/beth_ellen"
-        android:textSize="35sp"/>
+        style="@style/HeaderTextStyle"
+        android:textSize="35sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:layout_width="250dp"
@@ -100,8 +99,7 @@
             android:layout_weight="1"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/DarkBlue"
+            style="@style/ButtonStyle"
             android:layout_marginRight="10dp"
             />
 
@@ -114,8 +112,7 @@
             android:layout_weight="1"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/DarkBlue"
+            style="@style/ButtonStyle"
             android:layout_marginLeft="10dp"/>
 
     </LinearLayout>

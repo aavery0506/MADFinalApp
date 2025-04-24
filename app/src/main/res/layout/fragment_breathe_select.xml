@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightBlue"
+    android:background="?attr/backgroundColor"
     tools:context=".BreatheSelect">
 
 
@@ -38,9 +38,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_gravity="center"
-            android:fontFamily="@font/gaegu"
+            style="@style/Header2TextStyle"
             android:text="Select Breathing Time"
-            android:textColor="@color/DarkestBlue"
             android:textSize="35sp"
             android:textStyle="bold" />
 
@@ -57,48 +56,44 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:fontFamily="@font/gaegu"
+                style="@style/Header2TextStyle"
                 android:text="1 Min"
-                android:textColor="@color/DarkestBlue"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:buttonTint="@color/DarkBlue" />
+                app:buttonTint="?attr/buttonTint" />
 
             <RadioButton
                 android:id="@+id/twoMin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:fontFamily="@font/gaegu"
+                style="@style/Header2TextStyle"
                 android:text="2 Mins"
-                android:textColor="@color/DarkestBlue"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:buttonTint="@color/DarkBlue" />
+                app:buttonTint="?attr/buttonTint" />
 
             <RadioButton
                 android:id="@+id/fiveMin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:fontFamily="@font/gaegu"
+                style="@style/Header2TextStyle"
                 android:text="5 Mins"
-                android:textColor="@color/DarkestBlue"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:buttonTint="@color/DarkBlue" />
+                app:buttonTint="?attr/buttonTint" />
 
             <RadioButton
                 android:id="@+id/tenMin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:fontFamily="@font/gaegu"
+                style="@style/Header2TextStyle"
                 android:text="10 Mins"
-                android:textColor="@color/DarkestBlue"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:buttonTint="@color/DarkBlue" />
+                app:buttonTint="?attr/buttonTint" />
 
         </RadioGroup>
 
@@ -113,17 +108,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Enter Custom Time: "
-                android:textColor="@color/DarkestBlue"
+                style="@style/Header2TextStyle"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/gaegu"/>
+                />
 
             <EditText
                 android:id="@+id/custom_time_entry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Minutes"
-                android:textColorHint="@color/white"/>
+                android:textColor="?attr/android:textColorPrimary"
+                android:textColorHint="?attr/android:textColorSecondary"/>
 
 
         </LinearLayout>
@@ -141,8 +137,8 @@
                 android:layout_height="wrap_content"
                 android:text="daily progress"
                 android:textAlignment="textStart"
-                android:textColor="@color/DarkestBlue"
-                android:textSize="18sp"
+                style="@style/Header2TextStyle"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 />
 
@@ -150,9 +146,8 @@
                 android:id="@+id/btn_select"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/DarkBlue"
+                style="@style/ButtonStyle"
                 android:text="Select"
-                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="normal"
                 android:layout_gravity="end"

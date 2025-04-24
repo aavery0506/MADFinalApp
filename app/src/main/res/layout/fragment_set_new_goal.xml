@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightBlue"
+    android:background="?attr/backgroundColor"
     tools:context=".SetNewGoal">
 
     <LinearLayout
@@ -30,7 +30,7 @@
             android:fontFamily="@font/gaegu"
             android:text="Set New Goal"
             android:textAlignment="center"
-            android:textColor="@color/DarkBlue"
+            style="@style/Header2TextStyle"
             android:textSize="40sp"
             android:textStyle="bold" />
 
@@ -49,8 +49,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Daily Minutes: "
-                android:textColor="@color/DarkBlue"
-                android:textSize="20sp"
+                style="@style/Header2TextStyle"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -58,8 +58,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Enter number of minutes"
-                android:textColor="@color/DarkBlue"
-                android:textColorHint="@color/white" />
+                android:textColor="?attr/android:textColorPrimary"
+                android:textColorHint="?attr/android:textColorSecondary" />
 
         </LinearLayout>
 
@@ -78,8 +78,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Weekly Minutes: "
-                android:textColor="@color/DarkBlue"
-                android:textSize="20sp"
+                style="@style/Header2TextStyle"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -87,8 +87,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Enter number of minutes"
-                android:textColor="@color/DarkBlue"
-                android:textColorHint="@color/white" />
+                android:textColor="?attr/android:textColorPrimary"
+                android:textColorHint="?attr/android:textColorSecondary" />
 
 
         </LinearLayout>
@@ -99,8 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save Goal"
-        android:backgroundTint="@color/DarkBlue"
-        android:textColor="@color/white"
+        style="@style/ButtonStyle"
         app:layout_constraintTop_toBottomOf="@+id/ll_main_set_goal"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="15dp"

@@ -5,20 +5,8 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     tools:context=".WeeklyGoals">
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/frameLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/LightBlue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:context=".WeeklyGoals"
-        tools:layout_editor_absoluteY="-202dp">
-
 
         <TextView
             android:id="@+id/tv_weekly_goals"
@@ -26,9 +14,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/gaegu"
             android:text="Current Progress"
+            style="@style/Header2TextStyle"
             android:textAlignment="center"
-            android:textColor="@color/DarkBlue"
-            android:textSize="30sp"
+            android:textSize="40sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/guideline7"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,8 +40,8 @@
             android:layout_height="wrap_content"
             android:text="Currrent Goal: "
             android:textAlignment="center"
-            android:textColor="@color/DarkBlue"
-            android:textSize="20sp"
+            style="@style/Header2TextStyle"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/guideline7"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
@@ -66,8 +54,8 @@
             android:layout_height="wrap_content"
             android:text=" "
             android:textAlignment="center"
-            android:textColor="@color/DarkBlue"
-            android:textSize="30sp"
+            style="@style/Header2TextStyle"
+            android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/guideline7"
             app:layout_constraintEnd_toEndOf="parent"
@@ -91,9 +79,9 @@
             android:id="@+id/mins_wtotal_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total Mins This Week:  "
-            android:textColor="@color/DarkBlue"
-            android:textSize="16sp"
+            android:text="Total Mins This Week:"
+            style="@style/Header2TextStyle"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="200dp"
             app:layout_constraintBottom_toTopOf="@+id/show_total_dmins"
@@ -109,13 +97,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="totalMins"
-            android:textColor="@color/DarkBlue"
-            android:textSize="16sp"
+            style="@style/Header2TextStyle"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mins_wtotal_label" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

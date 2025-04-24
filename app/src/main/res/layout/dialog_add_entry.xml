@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/LightestBlue"
+    android:background="?attr/cardBackgroundColor"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/DarkBlue"
         android:hint="Title"
-        android:textColorHint="@color/DarkBlue"
+        android:textColorHint="?attr/cardForegroundColor"
         android:inputType="text"
          />
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textColor="@color/DarkBlue"
-        android:textColorHint="@color/DarkBlue"
+        android:textColorHint="?attr/cardForegroundColor"
         android:hint="Date (yyyy-MM-dd)"
         android:inputType="date"
          />
@@ -34,7 +34,7 @@
         android:layout_marginTop="8dp"
         android:textColor="@color/DarkBlue"
         android:hint="Journal entry"
-        android:textColorHint="@color/DarkBlue"
+        android:textColorHint="?attr/cardForegroundColor"
         android:inputType="textMultiLine"
         android:minLines="4"
         android:gravity="top|start" />
@@ -47,9 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-
-            android:backgroundTint="@color/DarkBlue"
-            android:textColor="@color/white"
+            style="@style/ButtonStyle"
             android:text="Save" />
 
         <Button
@@ -57,9 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:backgroundTint="@color/DarkBlue"
-            android:text="Cancel"
-            android:textColor="@color/white" />
+            style="@style/ButtonStyle"
+            android:text="Cancel" />
 
     </LinearLayout>
 

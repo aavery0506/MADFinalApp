@@ -12,10 +12,9 @@
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/beth_ellen"
         android:paddingTop="30dp"
         android:text="Welcome"
-        android:textColor="@color/DarkestBlue"
+        style="@style/HeaderTextStyle"
         android:textSize="70sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +29,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/lotus_simple"
-        app:tint="@color/DarkestBlue" />
+        app:tint="?attr/android:colorSecondary" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/topguideline"
@@ -54,7 +53,7 @@
         android:backgroundTint="@color/DarkBlue"
         android:fontFamily="@font/gaegu"
         android:text="Journal"
-        android:textColor="@color/white"
+        style="@style/ButtonStyle"
         android:textSize="30sp"
         android:hapticFeedbackEnabled="true"/>
 
@@ -62,10 +61,9 @@
         android:id="@+id/HomeBreathe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/DarkBlue"
+        style="@style/ButtonStyle"
         android:fontFamily="@font/gaegu"
         android:text="Breathe"
-        android:textColor="@color/white"
         android:textSize="30sp"
         android:hapticFeedbackEnabled="true"/>
 
@@ -73,10 +71,9 @@
         android:id="@+id/HomeGoals"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/DarkBlue"
+        style="@style/ButtonStyle"
         android:fontFamily="@font/gaegu"
         android:text="Goals"
-        android:textColor="@color/white"
         android:textSize="30sp"
         android:hapticFeedbackEnabled="true"
          />
@@ -84,10 +81,9 @@
         android:id="@+id/HomeAffirmations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/DarkBlue"
+        style="@style/ButtonStyle"
         android:fontFamily="@font/gaegu"
         android:text="Affirmations"
-        android:textColor="@color/white"
         android:textSize="30sp"
         android:hapticFeedbackEnabled="true"
         />
