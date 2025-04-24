@@ -1,5 +1,27 @@
 package com.example.selfcareapp;
+/*
+Goals Class
+Functionality:
+    -Creates the Goal Activity and extends AppCompatActivity
+    -facilitates  TabLayout to display dailyGoals, weeklyGoals, and setNewGoal Fragments
+    -utilizes NavController, GoalsAdapter, and TabLayoutMediator classes
+    -goes back to the home screen when the lotus is clicked
 
+Concepts from Class:
+    -Activity binding
+    -Fragments
+    -Design Elements:
+        -constraint layout
+        -guidelines
+        -textView
+        -ImageView
+        -TabLayout
+        -TabItem
+        -ViewPager2
+    -Listeners
+        -setOnClickListener
+    -Intent to start new activity
+ */
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;

@@ -249,7 +249,7 @@ public class BreatheAnimation extends Fragment {
     //Method to record session when the timer has ended.
     private void onExerciseCompleted(){
 
-        long durationMins = (int)Math.ceil(TimerSettings.getInstance().getSelectedTimeInMS()/6000.0);
+        long durationMins = (int)Math.ceil(TimerSettings.getInstance().getSelectedTimeInMS()/60000.0);
         //record session
         repository.recordSession((int) durationMins,exerciseType);
         // show notification if goal is achieved or close

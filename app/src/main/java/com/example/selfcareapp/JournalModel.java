@@ -1,12 +1,27 @@
 package com.example.selfcareapp;
+/*
+JournalModel class
 
+Functionality:
+    -Utility class to set up a Journal Entry
+        -id
+        -title
+        -date
+        -entry
+    -getters and setters for attributes
+Concepts from class:
+    -Empty constructor for Firebase usage
+    -Utilizing models classes to set up data structures for activities and fragments
+ */
 public class JournalModel {
     private String id;
     private String title;
     private String date;
     private String entry;
 
+    //Constructors
     public JournalModel(){} //empty constructor for Firebase
+    //contractor to set up new Journal with given information for id, title, date, and entry
     public JournalModel(String id, String title, String date, String entry){
         this.id = id;
         this.title=title;

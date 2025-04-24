@@ -2,13 +2,27 @@ package com.example.selfcareapp;
 
 import java.time.LocalDateTime;
 
-//Class to represent a completed breathing exercise
+/*
+Session Record Class
+
+Functionality:
+    -Utility Class to represent a completed breathing exercise
+        -id
+        -timestamp
+        -durationMinutes
+        -exerciseType (for future additional functions)
+
+Concepts from class:
+    -Utilizing models classes to set up data structures for activities and fragments
+ */
 public class SessionRecord {
+    //initialize variables
     private long id;
     private LocalDateTime timeStamp;
     private int durationMinutes;
     private String exerciseType;
 
+    //constructor that accepts durationsMins and exerciseType
     public SessionRecord(int durationMinutes, String exerciseType) {
         this.durationMinutes = durationMinutes;
         this.exerciseType = exerciseType;

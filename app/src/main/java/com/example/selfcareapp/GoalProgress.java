@@ -2,7 +2,16 @@ package com.example.selfcareapp;
 
 import java.time.LocalDate;
 
-//utility class used to keep track of progress towards goals
+/*
+Goal Progress class
+Functionality:
+    -utility class used to keep track of progress towards goals
+        -goal
+        -completedMinutes
+        -date
+Concepts from Class:
+    -Utilizing models/helper classes to handle logic for activities and fragments
+ */
 public class GoalProgress {
     //instance variables
     private GoalModel goal;

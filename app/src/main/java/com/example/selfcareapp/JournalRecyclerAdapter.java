@@ -1,5 +1,17 @@
 package com.example.selfcareapp;
+/*
+JournalRecyclerAdapter class
 
+Functionality:
+    -class for Journal recyclerView
+    -extends RecyclerView.Adapter
+    -ability to add journals
+    -displays journals for a recyclerView
+
+Concepts from Class:
+    -RecyclerView implementation
+
+ */
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +28,12 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
     private ArrayList<JournalModel> journals;
     Context context;
 
+    //super constructor implementation
     public JournalRecyclerAdapter(){
         super();
     }
 
+    //constructor the takes in the context and an ArrayList of journals to display
     public JournalRecyclerAdapter(Context context, ArrayList<JournalModel> journals){
         this.context = context;
         this.journals = journals;
@@ -41,6 +55,7 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
 
     }
 
+    //get the count of total journals
     @Override
     public int getItemCount() {
         return journals.size();
@@ -57,6 +72,7 @@ public class JournalRecyclerAdapter extends RecyclerView.Adapter<JournalRecycler
         notifyDataSetChanged();
     }
 
+    //ViewHolder class to create the cards
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private TextView title;
         private TextView entry;

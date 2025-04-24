@@ -29,17 +29,36 @@ Functionality:
     -User can enter credentials and sign up for an account
     -User verification through FirebaseAuthentication
     -On successful login, brings you to the HomeScreen
+    -Utilizes Firebase functions for storage and authentication
 
 Concepts from class:
+    -Activity binding
+    -Firebase
+        -Realtime Database
+        -Authentication
+    -Listeners
+        -setOnClickListener
+        -OnSuccessListener
+    -Design Elements:
+        -LinearLayout
+        -TextView
+        -ImageView
+        -CardView
+        -EditText
+        -Buttons
+    -Intents for launching a new activity
 
  */
 public class LoginScreen extends AppCompatActivity {
 
+    //initialize class variables
     ActivityLoginScreenBinding binding;
     String name, email, password;
 
     DatabaseReference databaseReference;
     private FirebaseAuth mAuth;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +76,7 @@ public class LoginScreen extends AppCompatActivity {
             return insets;
         });
 
+        //set up login button, gets information from textEdits, runs login function
         binding.login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,6 +86,7 @@ public class LoginScreen extends AppCompatActivity {
             }
         });
 
+        //set up signup button, gets information from textEdits, runs signUp function
         binding.signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,6 +99,7 @@ public class LoginScreen extends AppCompatActivity {
 
     }
 
+    //Login function, uses FirebaseAuth to verify login credentials, if successful login into app
     private void login() {
         FirebaseAuth.getInstance()
                 .signInWithEmailAndPassword(email.trim(),password)
@@ -92,6 +114,7 @@ public class LoginScreen extends AppCompatActivity {
                 });
     }
 
+    //signUp function, uses FirebaseAuth to create a new user with email and password credentials, logs into app
     private void signUp() {
         FirebaseAuth.getInstance()
                 .createUserWithEmailAndPassword(email.trim(),password)
