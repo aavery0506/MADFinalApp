@@ -1,8 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.gms.google.services)
-
-
 }
 
 android {
@@ -44,13 +42,15 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation(libs.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+
+    // Firebase
+    implementation(libs.firebase.database)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
-
 
     // Retrofit
     implementation(libs.retrofit)
@@ -61,7 +61,7 @@ dependencies {
     // OkHttp for network operations
     implementation(libs.okhttp)
 
-    // Optional: Logging interceptor for debugging
+    //Logging interceptor for debugging
     implementation(libs.logging.interceptor)
 
     //Navigation Component

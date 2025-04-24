@@ -18,7 +18,7 @@
             android:name=".Goals"
             android:exported="false" />
         <activity
-            android:name=".LoginScreen"
+            android:name=".HomeScreen"
             android:exported="false" />
         <activity
             android:name=".Journal"
@@ -30,7 +30,7 @@
             android:name=".Affirmations"
             android:exported="false" />
         <activity
-            android:name=".HomeScreen"
+            android:name=".LoginScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
